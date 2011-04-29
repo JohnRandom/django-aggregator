@@ -1,0 +1,10 @@
+from django.core.management.base import BaseCommand, CommandError
+from landing_page.models import Feed, update_feed, register_feed
+
+class Command(BaseCommand):
+	args = '<feed_url, feed_url, ... >'
+	help = 'Adds feed urls to the database'
+
+	def handle(self, *args, **options):
+		for feed in Feed.objects.all():
+			feed.update()
