@@ -1,4 +1,29 @@
 import feedparser
+from landing_page.models import Feed
+
+def register_feed(url, parse_instantly = False):
+	if parse_instantly:
+		parser = FeedParser(url)
+		try: f, new = Feed.objects.get_or_create(**parser.get_defaults())
+		except Exception as e: raise e
+	else:
+		f, new = Feed.objects.get_or_create(link = url)
+		f.save()
+
+	return f
+
+class DecoratorError(Exception):
+	pass
+
+def parse_feed(method):
+
+	def wrapper(*args, **kwargs):
+		inst = args[0]
+		if not isinstance(inst, FeedParser): raise DecoratorError("parse_feed can only be used with FeedParser.")
+		if inst.feed is None: inst.feed = feedparser.parse(inst.url)
+		return method(*args, **kwargs)
+
+	return wrapper
 
 class FeedParser(object):
 
@@ -6,14 +31,7 @@ class FeedParser(object):
 		self.url = url
 		self.feed = None
 
-	def _parse(self):
-		if self.feed is None:
-			self.feed = feed = feedparser.parse(self.url)
-		else:
-			feed = self.feed
-
-		return feed
-
+	@parse_feed
 	def _map_content(self):
 		feed = self.feed
 
@@ -24,23 +42,15 @@ class FeedParser(object):
 			'etag': feed.etag,
 		}
 
+	@parse_feed
 	def get_defaults(self):
-		feed = self._parse()
+		feed = self.feed
 		return self._map_content()
 
+	@parse_feed
 	def get_entries(self):
 		return self.feed.entries
 
-
-
-
-#>>> d.feed.title
-#u'Sample Feed'
-#>>> d.feed.link
-#u'http://example.org/'
-#>>> d.feed.description
-#u'For documentation <em>only</em>'
-#>>> d.feed.date
-#u'Sat, 07 Sep 2002 0:00:01 GMT'
-#>>> d.feed.date_parsed
-#(2002, 9, 7, 0, 0, 1, 5, 250, 0)
+	@parse_feed
+	def get_feed(self):
+		return self.feed
