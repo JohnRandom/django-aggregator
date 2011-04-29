@@ -12,12 +12,15 @@ class Feed(models.Model):
 	etag = models.CharField("ETag", max_length = 255, null = True, blank = True)
 	date_parsed = models.DateTimeField("Last visited", auto_now = True)
 
-	def update(self, and_save = True):
+	def update(self):
+		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
+
 		parser = FeedParser(self)
+		if parser.get_feed().status == 304: return
 		self.__dict__.update(**parser.get_defaults())
-		if and_save:
-			if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
-			self.save()
+		self.save()
+
+		[Entry.objects.create(**entry.get_defaults()) for entry in parser.get_entries()]
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)
@@ -29,18 +32,17 @@ class Feed(models.Model):
 	class NotUpdatetableError(Exception):
 		pass
 
+class Entry(models.Model):
 
-def register_feed(source, parse_instantly = False):
-	f, new = Feed.get_or_create(source = url)
-	parser = FeedParser(source)
+	title = models.CharField("Title", max_length = 255)
+	author = models.CharField("Author", max_length = 255)
+	date_published = models.DateTimeField()
+	feed = models.ForeignKey(Feed)
 
-	if parse_instantly:
-		try:
-			f = update_feed(f, **parser.get_defaults())
-			f.save()
-		except Exception as e:
-			raise e
+	class Meta:
+		unique_together = ('title', 'author', 'date_published', 'feed')
 
-	return f
+	def __unicode__(self):
+		return unicode(self.title)
 
 post_save.connect(feed_created, sender = Feed)

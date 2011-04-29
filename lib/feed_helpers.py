@@ -1,6 +1,7 @@
 import feedparser
+from lib.entry_helpers import EntryWrapper
 
-ALLOWED_STATUS_CODES = [200, 301, 302]
+ALLOWED_STATUS_CODES = [200, 301, 302, 304]
 
 class DecoratorError(Exception):
 	pass
@@ -14,9 +15,9 @@ def parse_feed(method):
 		inst = args[0]
 		if not isinstance(inst, FeedParser): raise DecoratorError("parse_feed can only be used with FeedParser.")
 		if inst.feed is None:
-			inst.feed = feed = feedparser.parse(inst.source)
+			inst.feed = feed = feedparser.parse(inst.source, etag = inst.model.etag)
 			if not inst.is_valid():
-				print feed
+				print inst.feed.status
 				raise FeedParsingError()
 		return method(*args, **kwargs)
 
@@ -46,6 +47,10 @@ class FeedParser(object):
 
 	@parse_feed
 	def get_entries(self):
+		return map(lambda x: EntryWrapper(x, self.model), self.feed.entries)
+
+	@parse_feed
+	def raw_entries(self):
 		return self.feed.entries
 
 	@parse_feed
@@ -55,7 +60,5 @@ class FeedParser(object):
 	@parse_feed
 	def is_valid(self):
 		if hasattr(self.feed, 'status') and not self.feed.status in ALLOWED_STATUS_CODES:
-			return False
-		elif self.feed.feed == {}:
 			return False
 		return True
