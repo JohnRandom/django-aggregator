@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 from landing_page.models import Feed
-from lib.feed_helpers import register_feed, update_feed, feed_valid
 
 class Command(BaseCommand):
 	args = '<feed_url, feed_url, ... >'
@@ -8,4 +7,4 @@ class Command(BaseCommand):
 
 	def handle(self, *args, **options):
 		for url in args:
-			feed = register_feed(url)
+			feed = Feed.objects.get_or_create(source = url)
