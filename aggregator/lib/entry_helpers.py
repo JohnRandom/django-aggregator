@@ -6,16 +6,14 @@ class EntryWrapper(object):
 	to a subset of the entry properties suitable to create an Entry instance.
 	'''
 
-	def __init__(self, entry_instance, feed_instance):
+	def __init__(self, entry_instance):
 		self.model = entry_instance
-		self.feed = feed_instance
 
 	def _map_content(self):
-		m, f = self.model, self.feed
+		m = self.model
 
 		return {
 			'title': m.title,
-			'feed': f,
 			'date_published': self.figure_date(),
 			'author': m.get('author', 'unknown'),
 		}

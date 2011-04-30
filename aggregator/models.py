@@ -16,14 +16,14 @@ class Feed(models.Model):
 		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
 
 		parser = FeedParser(self)
+
+		# update feed
 		if parser.get_feed().status == 304: return
 		self.__dict__.update(**parser.get_defaults())
 		self.save()
 
-		[Entry.objects.create(**entry.get_defaults()) for entry in parser.get_entries()]
-
-	def entries(self):
-		return Entry.objects.filter(feed = self)
+		# update entries
+		[self.entry_set.create(**entry.get_defaults()) for entry in parser.get_entries()]
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)

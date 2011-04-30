@@ -63,7 +63,7 @@ class FeedParser(object):
 		'''
 		Returns the entry list with each element wrapped in an EntryWrapper.
 		'''
-		return map(lambda x: EntryWrapper(x, self.model), self.feed.entries)
+		return map(EntryWrapper, self.feed.entries)
 
 	@parse_feed
 	def raw_entries(self):
