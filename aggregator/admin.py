@@ -8,7 +8,7 @@ class FeedAdmin(admin.ModelAdmin):
 				'source',
 			)
 		}),
-		('Details', {
+		('Extracted attributes', {
 			'classes': (
 				'collapse',
 			),
