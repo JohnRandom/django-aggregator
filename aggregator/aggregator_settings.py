@@ -1,0 +1,2 @@
+UPDATE_ON_FEED_CREATION = True
+
