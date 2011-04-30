@@ -7,9 +7,9 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding model 'Feed'
-        db.create_table('landing_page_feed', (
+        db.create_table('aggregator_feed', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('link', self.gf('django.db.models.fields.URLField')(max_length=255)),
@@ -17,17 +17,17 @@ class Migration(SchemaMigration):
             ('etag', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
             ('date_parsed', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
-        db.send_create_signal('landing_page', ['Feed'])
+        db.send_create_signal('aggregator', ['Feed'])
 
 
     def backwards(self, orm):
-        
+
         # Deleting model 'Feed'
-        db.delete_table('landing_page_feed')
+        db.delete_table('aggregator_feed')
 
 
     models = {
-        'landing_page.feed': {
+        'aggregator.feed': {
             'Meta': {'object_name': 'Feed'},
             'date_parsed': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
@@ -38,4 +38,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['landing_page']
+    complete_apps = ['aggregator']

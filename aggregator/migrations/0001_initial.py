@@ -15,7 +15,8 @@ class Migration(SchemaMigration):
 
 
     models = {
-        
+
     }
 
-    complete_apps = ['landing_page']
+    complete_apps = ['aggregator']
+

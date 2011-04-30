@@ -7,25 +7,25 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding field 'Feed.source'
-        db.add_column('landing_page_feed', 'source', self.gf('django.db.models.fields.URLField')(default=1, max_length=255), keep_default=False)
+        db.add_column('aggregator_feed', 'source', self.gf('django.db.models.fields.URLField')(default=1, max_length=255), keep_default=False)
 
         # Changing field 'Feed.link'
-        db.alter_column('landing_page_feed', 'link', self.gf('django.db.models.fields.URLField')(max_length=255, null=True))
+        db.alter_column('aggregator_feed', 'link', self.gf('django.db.models.fields.URLField')(max_length=255, null=True))
 
 
     def backwards(self, orm):
-        
+
         # Deleting field 'Feed.source'
-        db.delete_column('landing_page_feed', 'source')
+        db.delete_column('aggregator_feed', 'source')
 
         # Changing field 'Feed.link'
-        db.alter_column('landing_page_feed', 'link', self.gf('django.db.models.fields.URLField')(default=1, max_length=255))
+        db.alter_column('aggregator_feed', 'link', self.gf('django.db.models.fields.URLField')(default=1, max_length=255))
 
 
     models = {
-        'landing_page.feed': {
+        'aggregator.feed': {
             'Meta': {'object_name': 'Feed'},
             'date_parsed': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
@@ -37,4 +37,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['landing_page']
+    complete_apps = ['aggregator']

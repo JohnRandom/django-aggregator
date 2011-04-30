@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from landing_page.models import Feed
+from aggregator.models import Feed
 
 class Command(BaseCommand):
 	args = '<feed_url, feed_url, ... >'
@@ -8,3 +8,4 @@ class Command(BaseCommand):
 	def handle(self, *args, **options):
 		for url in args:
 			feed = Feed.objects.get_or_create(source = url)
+

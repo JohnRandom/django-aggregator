@@ -7,30 +7,33 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
-        # Adding model 'Entry'
-        db.create_table('landing_page_entry', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('feed', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['landing_page.Feed'])),
-        ))
-        db.send_create_signal('landing_page', ['Entry'])
+
+        # Adding field 'Entry.author'
+        db.add_column('aggregator_entry', 'author', self.gf('django.db.models.fields.CharField')(default='unknown', max_length=255), keep_default=False)
+
+        # Adding field 'Entry.date_published'
+        db.add_column('aggregator_entry', 'date_published', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 4, 30, 1, 11, 58, 544933)), keep_default=False)
 
 
     def backwards(self, orm):
-        
-        # Deleting model 'Entry'
-        db.delete_table('landing_page_entry')
+
+        # Deleting field 'Entry.author'
+        db.delete_column('aggregator_entry', 'author')
+
+        # Deleting field 'Entry.date_published'
+        db.delete_column('aggregator_entry', 'date_published')
 
 
     models = {
-        'landing_page.entry': {
+        'aggregator.entry': {
             'Meta': {'object_name': 'Entry'},
-            'feed': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['landing_page.Feed']"}),
+            'author': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'date_published': ('django.db.models.fields.DateTimeField', [], {}),
+            'feed': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['aggregator.Feed']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
-        'landing_page.feed': {
+        'aggregator.feed': {
             'Meta': {'object_name': 'Feed'},
             'date_parsed': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'description': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
@@ -42,4 +45,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['landing_page']
+    complete_apps = ['aggregator']

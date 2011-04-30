@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from lib.feed_helpers import FeedParser
-from landing_page.receiver import feed_created
+from aggregator.receiver import feed_created
 
 class Feed(models.Model):
 
