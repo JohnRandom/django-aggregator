@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.signals import post_save
-from lib.feed_helpers import FeedParser
+from aggregator.lib.feed_helpers import FeedParser
 from aggregator.receiver import feed_created
 
 class Feed(models.Model):
@@ -22,6 +22,9 @@ class Feed(models.Model):
 
 		[Entry.objects.create(**entry.get_defaults()) for entry in parser.get_entries()]
 
+	def entries(self):
+		return Entry.objects.filter(feed = self)
+
 	def __unicode__(self):
 		return unicode(self.title or self.source)
 
@@ -41,6 +44,7 @@ class Entry(models.Model):
 
 	class Meta:
 		unique_together = ('title', 'author', 'date_published', 'feed')
+		ordering = ('-date_published',)
 
 	def __unicode__(self):
 		return unicode(self.title)
