@@ -1,5 +1,5 @@
 import feedparser
-from lib.entry_helpers import EntryWrapper
+from aggregator.lib.entry_helpers import EntryWrapper
 
 ALLOWED_STATUS_CODES = [200, 301, 302, 304]
 
