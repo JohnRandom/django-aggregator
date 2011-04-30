@@ -39,17 +39,25 @@ class FeedParser(object):
 		self.source = feed_instance.source
 		self.model = feed_instance
 		self.feed = None
+		self.error = {'raised': 0, 'message': ''}
 
 	@parse_feed
 	def _map_content(self):
 		feed = self.feed
 
-		return {
+		content =  {
 			'title': feed.feed.get('title', None),
 			'link': feed.feed.get('link', None),
 			'description': feed.feed.get('description', None),
 			'etag': feed.get('etag', None),
 		}
+
+		self.error = {
+			'raised': feed.bozo, #feed.get('bozo', 0),
+			'message': feed.get('bozo_exception', ''),
+		}
+
+		return content
 
 	@parse_feed
 	def get_defaults(self):

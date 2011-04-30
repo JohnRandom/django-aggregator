@@ -25,6 +25,9 @@ class Feed(models.Model):
 		# update entries
 		[self.entry_set.create(**entry.get_defaults()) for entry in parser.get_entries()]
 
+		if parser.error['raised']:
+			self.parsingerror_set.create(error_message = parser.error['message'][:255])
+
 	def __unicode__(self):
 		return unicode(self.title or self.source)
 
@@ -35,6 +38,18 @@ class Feed(models.Model):
 	class NotUpdatetableError(Exception):
 		pass
 
+class ParsingError(models.Model):
+
+	feed = models.ForeignKey(Feed)
+	error_message = models.CharField('Error message', max_length = 255)
+	date_raised = models.DateTimeField('occured at', auto_now_add = True)
+
+	class Meta:
+		ordering = ('-date_raised',)
+
+	def __unicode__(self):
+		return unicode('%s on feed: %s' % (self.error_message, self.feed))
+
 class Entry(models.Model):
 
 	title = models.CharField("Title", max_length = 255)
@@ -43,7 +58,6 @@ class Entry(models.Model):
 	feed = models.ForeignKey(Feed)
 
 	class Meta:
-		unique_together = ('title', 'author', 'date_published', 'feed')
 		ordering = ('-date_published',)
 
 	def __unicode__(self):
