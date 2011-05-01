@@ -18,7 +18,7 @@ class Feed(models.Model):
 		parser = FeedParser(self)
 
 		# update feed
-		if parser.get_feed().status == 304: return
+		if parser.feed.get('status', False) == 304: return
 		self.__dict__.update(**parser.get_defaults())
 		self.save()
 
@@ -62,5 +62,13 @@ class Entry(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title)
+
+#class Settings(models.Model):
+
+#	fields_visible = models.CharField('Visible fields', max_length = 255, default = 'all')
+#	feed = models.ForeignKey(Feed, unique = True, blank = True, null = True)
+
+#	def __unicode__(self):
+#		return unicode('settings for: %s' % self.feed or 'All feeds')
 
 post_save.connect(feed_created, sender = Feed)
