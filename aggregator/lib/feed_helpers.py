@@ -85,4 +85,6 @@ class FeedParser(object):
 	def is_valid(self):
 		if hasattr(self.feed, 'status') and self.feed.status in ALLOWED_STATUS_CODES:
 			return True
+		elif self.feed.feed.get('title', False):
+			return True
 		return False
