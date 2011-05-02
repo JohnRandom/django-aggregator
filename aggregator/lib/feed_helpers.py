@@ -21,8 +21,6 @@ def parse_feed(method):
 		if not isinstance(inst, FeedParser): raise DecoratorError("parse_feed can only be used with FeedParser.")
 		if inst.feed is None:
 			inst.feed = feed = feedparser.parse(inst.source, etag = inst.model.etag)
-			if not inst.is_valid():
-				raise FeedParsingError()
 		return method(*args, **kwargs)
 
 	return wrapper
@@ -53,7 +51,7 @@ class FeedParser(object):
 		}
 
 		self.error = {
-			'raised': feed.bozo, #feed.get('bozo', 0),
+			'raised': feed.get('bozo', 0),
 			'message': feed.get('bozo_exception', ''),
 		}
 

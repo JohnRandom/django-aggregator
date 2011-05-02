@@ -28,6 +28,8 @@ class Feed(models.Model):
 		if parser.error['raised']:
 			self.parsingerror_set.create(error_message = parser.error['message'][:255])
 
+		return parser.is_valid()
+
 	def __unicode__(self):
 		return unicode(self.title or self.source)
 
