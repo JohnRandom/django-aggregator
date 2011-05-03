@@ -6,11 +6,11 @@ class EntryWrapper(object):
 	to a subset of the entry properties suitable to create an Entry instance.
 	'''
 
-	def __init__(self, entry_instance):
-		self.model = entry_instance
+	def __init__(self, entry_obj):
+		self.entry = entry_obj
 
 	def _map_content(self):
-		m = self.model
+		m = self.entry
 
 		return {
 			'title': m.title,
@@ -25,10 +25,11 @@ class EntryWrapper(object):
 		date, if no other field was set.
 		'''
 
-		m = self.model
+		m = self.entry
 
-		if hasattr(m, 'published_parsed'): date = m.published_parsed
-		elif hasattr(m, 'created_parsed'): date = m.created_parsed
+		if hasattr(m, 'published'): date = m.published
+		elif hasattr(m, 'created'): date = m.created
+		elif hasattr(m, 'updated'): date = m.updated
 		else: date = datetime.now()
 		return date
 

@@ -1,5 +1,5 @@
-from django.test import TestCase
 import nose.tools as nt
+from django.test import TestCase
 from nose.plugins.attrib import attr
 
 from aggregator.tests.factories import FeedFactory, InvalidFeedFactory
