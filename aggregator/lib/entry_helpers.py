@@ -1,4 +1,4 @@
-from datetime import datetime
+import time
 
 class EntryWrapper(object):
 	'''
@@ -27,11 +27,12 @@ class EntryWrapper(object):
 
 		m = self.entry
 
-		if hasattr(m, 'published'): date = m.published
-		elif hasattr(m, 'created'): date = m.created
-		elif hasattr(m, 'updated'): date = m.updated
-		else: date = datetime.now()
-		return date
+		if hasattr(m, 'published_parsed'): date = m.published_parsed
+		elif hasattr(m, 'created_parsed'): date = m.created_parsed
+		elif hasattr(m, 'updated_parsed'): date = m.updated_parsed
+		# always return the current time as default, and of type time.struct_time
+		else: date = time.strptime(time.ctime())
+		return time.strftime('%Y-%m-%d %H:%M:%S', date)
 
 	def get_defaults(self):
 		'''

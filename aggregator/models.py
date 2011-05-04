@@ -16,14 +16,15 @@ class Feed(models.Model):
 		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
 
 		parser = FeedParser(self)
+		defaults = parser.get_defaults()
 
 		# update feed
 		if parser.feed.get('status', False) == 304: return
-		self.__dict__.update(**parser.get_defaults())
+		self.__dict__.update(**defaults)
 		self.save()
 
 		# update entries
-		[self.entry_set.create(**entry.get_defaults()) for entry in parser.get_entries()]
+		[self.entry_set.get_or_create(**entry.get_defaults()) for entry in parser.get_entries()]
 
 		if parser.error['raised']:
 			self.parsingerror_set.create(error_message = parser.error['message'][:255])
@@ -36,6 +37,11 @@ class Feed(models.Model):
 	@models.permalink
 	def get_absolute_url(self):
 		raise NotImplementedError()
+
+	def save(self, and_update = False, *args, **kwargs):
+		saved = super(Feed, self).save(*args, **kwargs)
+		if and_update: self.update()
+		return saved
 
 	class NotUpdatetableError(Exception):
 		pass
@@ -73,4 +79,4 @@ class Entry(models.Model):
 #	def __unicode__(self):
 #		return unicode('settings for: %s' % self.feed or 'All feeds')
 
-post_save.connect(feed_created, sender = Feed)
+# post_save.connect(feed_created, sender = Feed)

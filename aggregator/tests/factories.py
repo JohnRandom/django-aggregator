@@ -12,10 +12,3 @@ class InvalidFeedFactory(factory.Factory):
 
 	source = ''
 
-#class EntryFactory(factory.Factory):
-#	FACTORY_FOR = Entry
-#
-#	title =
-#	author =
-#	date_published =
-#	feed =
