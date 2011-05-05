@@ -17,6 +17,7 @@ class FeedAdmin(admin.ModelAdmin):
 				'link',
 				'description',
 				'etag',
+				'language',
 			)
 		}),
 	)

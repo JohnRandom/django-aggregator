@@ -39,3 +39,7 @@ class EntryWrapper(object):
 		Provides the fields necessary for Feed creation as dictionary.
 		'''
 		return self._map_content()
+
+	def get_tags(self):
+		tags = self.entry.get('tags', [])
+		return [tag['term'] for tag in tags]

@@ -18,10 +18,6 @@ class FeedParserTests(TestCase):
 		self.parser.get_defaults()
 		nt.assert_equal(self.parser.feed.feed.title, 'c-base logbuch')
 
-	def test_feed_parser_should_parse_before_get_entries(self):
-		self.parser.get_entries()
-		nt.assert_equal(self.parser.feed.feed.title, 'c-base logbuch')
-
 	def test_feed_parser_should_wrap_all_entries(self):
 		entries = self.parser.get_entries()
 		nt.assert_true(all([isinstance(e, EntryWrapper) for e in entries]))
@@ -30,7 +26,7 @@ class FeedParserTests(TestCase):
 		nt.assert_equal(self.parser.feed, None)
 
 	def test_feed_parser_defaults_should_containt_required_keys(self):
-		required_keys = ['title', 'link', 'description', 'etag']
+		required_keys = ['title', 'link', 'description', 'etag', 'language_code']
 		defaults = self.parser.get_defaults()
 		nt.assert_true(all([k in defaults for k in required_keys]))
 

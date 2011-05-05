@@ -38,3 +38,12 @@ class EntryWrapperTests(TestCase):
 		date = self.wrapper.get_defaults()['date_published']
 		date_as_struct = time.strptime(date, '%Y-%m-%d %H:%M:%S')
 		assert_true(type(date_as_struct), time.struct_time)
+
+	def test_wrapper_should_parse_tags(self):
+		tags = self.wrapper.get_tags()
+		assert_equals(tags.sort(), ['bordleben', 'cience', 'com'].sort())
+
+	def test_wrapper_should_return_empty_list_if_not_tags_are_available(self):
+		del self.wrapper.entry['tags']
+		tags = self.wrapper.get_tags()
+		assert_equals(tags, [])

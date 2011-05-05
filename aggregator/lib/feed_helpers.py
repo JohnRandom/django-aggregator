@@ -48,6 +48,7 @@ class FeedParser(object):
 			'link': feed.feed.get('link', None),
 			'description': feed.feed.get('description', None),
 			'etag': feed.get('etag', None),
+			'language_code': feed.feed.get('language', None)
 		}
 
 		self.error = {

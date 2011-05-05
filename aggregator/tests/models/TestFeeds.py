@@ -5,6 +5,8 @@ from nose.plugins.attrib import attr
 from aggregator.tests.factories import FeedFactory, InvalidFeedFactory
 from aggregator.models import Feed, Entry, ParsingError
 
+from taggit.models import Tag
+
 class testif(object):
 
 	def __init__(self, condition):
@@ -49,13 +51,25 @@ class TestFeed(TestCase):
 		assert_equals(self.feed.description, u'culture communication carbonite')
 		assert_equals(self.feed.link, u'http://logbuch.c-base.org')
 		assert_equals(self.feed.title, u'c-base logbuch')
+		assert_equals(self.feed.language_code, u'en')
+		assert_equals(self.feed.language, u'english')
 
 	def test_feed_update_should_log_parsing_errors(self):
 		feed = InvalidFeedFactory()
 		feed_valid = feed.update()
 		assert_equals(ParsingError.objects.count(), 1)
 
-	def test_feed_update_should_return_valid_status(self):
+	def test_feed_update_should_return_false_if_invalid(self):
 		feed = InvalidFeedFactory()
 		feed_valid = feed.update()
 		assert_false(feed_valid)
+
+	def test_feed_update_should_return_true_if_valid(self):
+		feed = FeedFactory()
+		feed_valid = feed.update()
+		assert_true(feed_valid)
+
+	def test_update_should_generate_tags_for_entries(self):
+		assert_equals(Tag.objects.count(), 0)
+		self.feed.save(and_update = True)
+		assert_equals(Tag.objects.count(), 16)

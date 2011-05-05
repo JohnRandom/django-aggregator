@@ -1,7 +1,10 @@
 from django.db import models
 from django.db.models.signals import post_save
+
 from aggregator.lib.feed_helpers import FeedParser
 from aggregator.receiver import feed_created
+
+from taggit.managers import TaggableManager
 
 class Feed(models.Model):
 
@@ -11,6 +14,8 @@ class Feed(models.Model):
 	description = models.CharField("Description", max_length = 255, null = True, blank = True)
 	etag = models.CharField("ETag", max_length = 255, null = True, blank = True)
 	date_parsed = models.DateTimeField("Last visited", auto_now = True)
+	language = models.CharField("Language", max_length = 100, blank = True, null = True)
+	language_code = models.CharField("Language Code", max_length = 50, blank = True, null = True)
 
 	def update(self):
 		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
@@ -21,15 +26,27 @@ class Feed(models.Model):
 		# update feed
 		if parser.feed.get('status', False) == 304: return
 		self.__dict__.update(**defaults)
+		self._map_language()
 		self.save()
 
 		# update entries
-		[self.entry_set.get_or_create(**entry.get_defaults()) for entry in parser.get_entries()]
+		for entry in parser.get_entries():
+			e, new = self.entry_set.get_or_create(**entry.get_defaults())
+			e.tags.set(*entry.get_tags())
 
 		if parser.error['raised']:
 			self.parsingerror_set.create(error_message = parser.error['message'][:255])
 
 		return parser.is_valid()
+
+	def _map_language(self):
+
+		language_map = {
+			'en': 'english',
+			'de': 'german',
+		}
+
+		self.language = language_map.get(self.language_code, 'unknown')
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)
@@ -56,7 +73,7 @@ class ParsingError(models.Model):
 		ordering = ('-date_raised',)
 
 	def __unicode__(self):
-		return unicode('%s on feed: %s' % (self.error_message, self.feed))
+		return unicode('"%s" on feed: %s' % (self.error_message, self.feed))
 
 class Entry(models.Model):
 
@@ -65,18 +82,10 @@ class Entry(models.Model):
 	date_published = models.DateTimeField()
 	feed = models.ForeignKey(Feed)
 
+	tags = TaggableManager()
+
 	class Meta:
 		ordering = ('-date_published',)
 
 	def __unicode__(self):
 		return unicode(self.title)
-
-#class Settings(models.Model):
-
-#	fields_visible = models.CharField('Visible fields', max_length = 255, default = 'all')
-#	feed = models.ForeignKey(Feed, unique = True, blank = True, null = True)
-
-#	def __unicode__(self):
-#		return unicode('settings for: %s' % self.feed or 'All feeds')
-
-# post_save.connect(feed_created, sender = Feed)
