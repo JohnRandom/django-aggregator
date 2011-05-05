@@ -1,2 +1,4 @@
-from aggregator.lib.feed_helpers import FeedParser
+from django.views.generic import TemplateView
 
+class PlaygroundView(TemplateView):
+    template_name = "playground.html"

@@ -1,0 +1,16 @@
+<ul>
+  {% for entry in entries %}
+  <li><h3>{{ entry.title }}</h3></li>
+  <ul>
+    <li>{{ entry.author }}</li>
+    <li>{{ entry.date_published }}</li>
+    <li><a href="{{ entry.link }}">read</a></li>
+    <li><a href="{{ entry.feed.link }}">Feed: {{ entry.feed }}</a></li>
+    {% if entry.tags.all %}
+      <li>{% for tag in entry.tags.all %}
+        <a href="{{ tag.name }}">{{ tag.name }}</a>
+      {% endfor %}</li>
+    {% endif %}
+  </ul>
+  {% endfor %}
+</ul>
