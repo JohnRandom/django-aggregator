@@ -16,6 +16,7 @@ class EntryWrapper(object):
 			'title': m.title,
 			'date_published': self.figure_date(),
 			'author': m.get('author', 'unknown'),
+			'link': m.get('link', None)
 		}
 
 	def figure_date(self):

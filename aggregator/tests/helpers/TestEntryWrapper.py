@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import time
 from nose.tools import *
 from django.test import TestCase
@@ -16,9 +17,16 @@ class EntryWrapperTests(TestCase):
 		pass
 
 	def test_returns_the_correct_set_of_defaults(self):
-		required_keys = ['title', 'date_published', 'author']
+		required_keys = ['title', 'date_published', 'author', 'link']
 		defaults = self.wrapper.get_defaults()
 		assert_true(all([key in defaults for key in required_keys]))
+
+	def test_returns_the_correct_values_for_defaults(self):
+		d = self.wrapper.get_defaults()
+		assert_equals(d['title'], u'Ubuntu 11.04 \u201eNatty Narwhal\u201c Releaseparty 21.05.2011')
+		assert_equals(d['date_published'], u'2011-04-29 20:11:43')
+		assert_equals(d['author'], u'macro')
+		assert_equals(d['link'], u'http://logbuch.c-base.org/archives/1170')
 
 	def test_date_is_assigned_in_defaults(self):
 		date = self.wrapper.get_defaults()['date_published']

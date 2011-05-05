@@ -79,6 +79,7 @@ class Entry(models.Model):
 
 	title = models.CharField("Title", max_length = 255)
 	author = models.CharField("Author", max_length = 255)
+	link = models.CharField("Link", max_length = 255)
 	date_published = models.DateTimeField()
 	feed = models.ForeignKey(Feed)
 

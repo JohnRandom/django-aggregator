@@ -101,7 +101,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'cbase.urls'
 
 TEMPLATE_DIRS = (
-    '/home/moritz/Local/code/cbase/templates/'
+    '/home/moritz/Local/code/cbase/templates/',
 )
 
 INSTALLED_APPS = (
