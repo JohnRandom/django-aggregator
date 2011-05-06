@@ -9,6 +9,14 @@ from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
 
+def untrashed_only(method):
+	def wrapper(inst, *args, **kwargs):
+		if inst.trashed_at is None:
+			return method(inst, *args, **kwargs)
+		else:
+			return False
+	return wrapper
+
 class Feed(models.Model):
 
 	source = models.CharField("Source", max_length = 255)
@@ -20,11 +28,12 @@ class Feed(models.Model):
 	language = models.CharField("Language", max_length = 100, blank = True, null = True)
 	language_code = models.CharField("Language Code", max_length = 50, blank = True, null = True)
 	valid = models.BooleanField(default = True)
-	trashed_at = models.DateTimeField(blank = True, null = True)
+	trashed_at = models.DateTimeField("Trashed", blank = True, null = True)
 
 	objects = UntrashedFeedManager()
 	trashed = TrashedFeedManager()
 
+	@untrashed_only
 	def update(self):
 		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
 

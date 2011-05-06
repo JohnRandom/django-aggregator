@@ -1,12 +1,23 @@
+from datetime import datetime
+
 from django.contrib import admin
 from aggregator.models import Feed, Entry, ParsingError
 
+def update_feeds(modeladmin, request, queryset):
+    for feed in queryset:
+    	feed.update()
+update_feeds.short_description = "Update selected feeds"
+
 class FeedAdmin(admin.ModelAdmin):
 	readonly_fields = ('title', 'link', 'description', 'etag', 'language')
+	list_display = ('source', 'title', 'description', 'language')
+	list_filter = ('language',)
+	actions = [update_feeds]
 	fieldsets = (
 		(None, {
 			'fields': (
 				'source',
+				'trashed_at',
 			)
 		}),
 		('Extracted attributes', {

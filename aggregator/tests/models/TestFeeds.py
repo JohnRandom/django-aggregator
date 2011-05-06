@@ -87,6 +87,9 @@ class TestInvalidFeed(TestCase):
 
 	def setUp(self):
 		self.feed = InvalidFeedFactory.build()
+		delta = timedelta(hours = 2)
+		self.time_trashed = datetime.now() - delta
+		self.already_trashed_feed = FeedFactory.build(trashed_at = self.time_trashed)
 
 	def test_feed_parser_should_trash_invalid_feeds(self):
 		self.feed.save(and_update = True)
@@ -95,11 +98,14 @@ class TestInvalidFeed(TestCase):
 		assert_false(self.feed in Feed.objects.all())
 
 	def test_invalid_feeds_should_be_trashed_more_than_once(self):
-		delta = timedelta(hours = 2)
-		time_trashed = datetime.now() - delta
-		already_trashed_feed = InvalidFeedFactory(trashed_at = time_trashed)
-		already_trashed_feed.update()
-		assert_equals(already_trashed_feed.trashed_at, time_trashed)
+		self.already_trashed_feed.save(and_update = True)
+		assert_equals(self.already_trashed_feed.trashed_at, self.time_trashed)
+
+	@attr('wip')
+	def test_trashed_feeds_should_not_be_updated(self):
+		assert_equals(self.already_trashed_feed.title, None)
+		self.already_trashed_feed.save(and_update = True)
+		assert_equals(self.already_trashed_feed.title, None)
 
 class CustomManagerTests(TestCase):
 
