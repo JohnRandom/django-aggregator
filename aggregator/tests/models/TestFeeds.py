@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 
 from nose.tools import *
@@ -101,7 +102,6 @@ class TestInvalidFeed(TestCase):
 		self.already_trashed_feed.save(and_update = True)
 		assert_equals(self.already_trashed_feed.trashed_at, self.time_trashed)
 
-	@attr('wip')
 	def test_trashed_feeds_should_not_be_updated(self):
 		assert_equals(self.already_trashed_feed.title, None)
 		self.already_trashed_feed.save(and_update = True)

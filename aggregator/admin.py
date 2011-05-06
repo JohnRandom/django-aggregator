@@ -36,6 +36,8 @@ class FeedAdmin(admin.ModelAdmin):
 
 class EntryAdmin(admin.ModelAdmin):
 	readonly_fields = ('author', 'date_published', 'feed', 'link')
+	list_display = ('title', 'author', 'link', 'feed', 'date_published')
+	list_filter = ('feed', 'author')
 	fieldsets = (
 		(None, {
 			'fields': (

@@ -4,8 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 
 from aggregator.lib.feed_helpers import FeedParser
-from aggregator.receiver import feed_created
-from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
+from aggregator.managers import UntrashedFeedManager, TrashedFeedManager, ExpiredEntriesManager
 
 from taggit.managers import TaggableManager
 
@@ -50,6 +49,7 @@ class Feed(models.Model):
 		for entry in parser.get_entries():
 			e, new = self.entry_set.get_or_create(**entry.get_defaults())
 			e.tags.set(*entry.get_tags())
+			e.save()
 
 		# create parsing errors if necessary
 		if parser.error['raised']:
@@ -106,6 +106,8 @@ class Entry(models.Model):
 	feed = models.ForeignKey(Feed)
 
 	tags = TaggableManager()
+	expired = ExpiredEntriesManager()
+	objects = models.Manager()
 
 	class Meta:
 		ordering = ('-date_published',)
