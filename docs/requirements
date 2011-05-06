@@ -1,0 +1,17 @@
+Module: LandingPage
+	- Dort rendern sich macro's Screen-Designs
+	- Widget-Page
+Module: Feeds
+	- Aggregator
+	  - zieht sich von URLs die Feeds
+	  - Features:
+	    - Pagination
+	    - Filtering / Sorting
+	    - Searching
+	  - Views:
+	    - Complete HTML
+		- json
+		- snippet(?)
+Module: MoinMoin
+	- Include Static-Content von Coredump
+
