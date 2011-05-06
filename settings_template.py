@@ -4,16 +4,16 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Moritz Krog', 'moritzkrog@gmail.com'),
+    ('<Name>', '<eMail>'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'cbase',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
+        'ENGINE': 'django.db.backends', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
@@ -56,7 +56,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/moritz/Local/code/cbase/static/'
+STATIC_ROOT = '<path_to_project_root_folder>/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -98,10 +98,10 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'cbase.urls'
+ROOT_URLCONF = '<project_root_folder_name>.urls'
 
 TEMPLATE_DIRS = (
-    '/home/moritz/Local/code/cbase/templates/',
+    '<path_to_project_root_folder>/templates/',
 )
 
 INSTALLED_APPS = (
