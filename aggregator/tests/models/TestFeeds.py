@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from nose.tools import *
 from django.test import TestCase
 from nose.plugins.attrib import attr
@@ -17,7 +19,7 @@ class testif(object):
 			return func(*args, **kwargs) if self.condition else True
 		return wrapper
 
-class TestFeed(TestCase):
+class TestValidFeed(TestCase):
 
 	def setUp(self):
 		self.feed = FeedFactory.build()
@@ -73,3 +75,28 @@ class TestFeed(TestCase):
 		assert_equals(Tag.objects.count(), 0)
 		self.feed.save(and_update = True)
 		assert_equals(Tag.objects.count(), 16)
+
+	def test_valid_feeds_should_not_be_trashed(self):
+		self.feed.save(and_update = True)
+		assert_equals(self.feed.trashed_at, None)
+		assert_true(self.feed in Feed.objects.all())
+		assert_false(self.feed in Feed.trashed.all())
+
+
+class TestInvalidFeed(TestCase):
+
+	def setUp(self):
+		self.feed = InvalidFeedFactory.build()
+
+	def test_feed_parser_should_trash_invalid_feeds(self):
+		self.feed.save(and_update = True)
+		assert_true(self.feed.trashed_at)
+		assert_true(self.feed in Feed.trashed.all())
+		assert_false(self.feed in Feed.objects.all())
+
+	def test_invalid_feeds_should_be_trashed_more_than_once(self):
+		delta = timedelta(hours = 2)
+		time_trashed = datetime.now() - delta
+		already_trashed_feed = InvalidFeedFactory(trashed_at = time_trashed)
+		already_trashed_feed.update()
+		assert_equals(already_trashed_feed.trashed_at, time_trashed)

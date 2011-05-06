@@ -11,4 +11,3 @@ class InvalidFeedFactory(factory.Factory):
 	FACTORY_FOR = Feed
 
 	source = ''
-

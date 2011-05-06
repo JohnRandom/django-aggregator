@@ -1,14 +1,17 @@
+import datetime
+
 from django.db import models
 from django.db.models.signals import post_save
 
 from aggregator.lib.feed_helpers import FeedParser
 from aggregator.receiver import feed_created
+from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
 
 class Feed(models.Model):
 
-	source = models.URLField("Source", max_length = 255)
+	source = models.CharField("Source", max_length = 255)
 	title = models.CharField("Title", max_length = 255, null = True, blank = True)
 	link = models.URLField("Link", max_length = 255, null = True, blank = True)
 	description = models.CharField("Description", max_length = 255, null = True, blank = True)
@@ -16,6 +19,11 @@ class Feed(models.Model):
 	date_parsed = models.DateTimeField("Last visited", auto_now = True)
 	language = models.CharField("Language", max_length = 100, blank = True, null = True)
 	language_code = models.CharField("Language Code", max_length = 50, blank = True, null = True)
+	valid = models.BooleanField(default = True)
+	trashed_at = models.DateTimeField(blank = True, null = True)
+
+	objects = UntrashedFeedManager()
+	trashed = TrashedFeedManager()
 
 	def update(self):
 		if not self.id: raise self.NotUpdatetableError("Feed instances must be saved, before they can be updated.")
@@ -34,10 +42,15 @@ class Feed(models.Model):
 			e, new = self.entry_set.get_or_create(**entry.get_defaults())
 			e.tags.set(*entry.get_tags())
 
+		# create parsing errors if necessary
 		if parser.error['raised']:
 			self.parsingerror_set.create(error_message = parser.error['message'][:255])
 
-		return parser.is_valid()
+		# validate and trash if necessary
+		self.valid = parser.is_valid()
+		if not self.valid and self.trashed_at is None: self.trashed_at = datetime.datetime.now()
+		self.save()
+		return self.valid
 
 	def _map_language(self):
 
