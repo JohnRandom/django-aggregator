@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from django.db import models
 from django.db.models.signals import post_save
@@ -57,7 +57,7 @@ class Feed(models.Model):
 
 		# validate and trash if necessary
 		self.valid = parser.is_valid()
-		if not self.valid and self.trashed_at is None: self.trashed_at = datetime.datetime.now()
+		if not self.valid and self.trashed_at is None: self.trashed_at = datetime.now()
 		self.save()
 		return self.valid
 
@@ -106,8 +106,8 @@ class Entry(models.Model):
 	feed = models.ForeignKey(Feed)
 
 	tags = TaggableManager()
-	expired = ExpiredEntriesManager()
 	objects = models.Manager()
+	expired = ExpiredEntriesManager()
 
 	class Meta:
 		ordering = ('-date_published',)

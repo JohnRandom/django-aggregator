@@ -83,6 +83,12 @@ class TestValidFeed(TestCase):
 		assert_true(self.feed in Feed.objects.all())
 		assert_false(self.feed in Feed.trashed.all())
 
+	@attr('wip')
+	def test_trashed_feeds_never_update(self):
+		self.feed.trashed_at = datetime.now()
+		self.feed.save()
+
+		assert_false(self.feed.update())
 
 class TestInvalidFeed(TestCase):
 
