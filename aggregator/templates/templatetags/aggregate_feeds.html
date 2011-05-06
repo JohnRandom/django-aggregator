@@ -1,10 +1,9 @@
-<ul>
+<ol>
   {% for entry in entries %}
-  <li><h3>{{ entry.title }}</h3></li>
+  <li><h3><a href="{{ entry.link }}">{{ entry.title }}</a></h3></li>
   <ul>
     <li>{{ entry.author }}</li>
     <li>{{ entry.date_published }}</li>
-    <li><a href="{{ entry.link }}">read</a></li>
     <li><a href="{{ entry.feed.link }}">Feed: {{ entry.feed }}</a></li>
     {% if entry.tags.all %}
       <li>{% for tag in entry.tags.all %}
@@ -13,4 +12,4 @@
     {% endif %}
   </ul>
   {% endfor %}
-</ul>
+</ol>
