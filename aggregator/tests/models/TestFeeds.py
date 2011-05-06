@@ -100,3 +100,20 @@ class TestInvalidFeed(TestCase):
 		already_trashed_feed = InvalidFeedFactory(trashed_at = time_trashed)
 		already_trashed_feed.update()
 		assert_equals(already_trashed_feed.trashed_at, time_trashed)
+
+class CustomManagerTests(TestCase):
+
+	def setUp(self):
+		delta = timedelta(hours = 2)
+		time_trashed = datetime.now() - delta
+		self.valid_feed = FeedFactory()
+		self.invalid_feed = InvalidFeedFactory(trashed_at = time_trashed)
+
+	def tearfown(self):
+		pass
+
+	def test_objects_just_returns_not_trashed_feeds(self):
+		assert_equals(Feed.objects.get(), self.valid_feed)
+
+	def test_trashed_just_returns_not_trashed_feeds(self):
+		assert_equals(Feed.trashed.get(), self.invalid_feed)
