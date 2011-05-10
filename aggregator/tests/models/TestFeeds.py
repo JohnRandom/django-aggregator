@@ -32,7 +32,7 @@ class TestValidFeed(TestCase):
 		self.feed.save()
 		assert_false(Entry.objects.count())
 
-		self.feed.update()
+		self.feed.updater.run()
 		assert_equals(Entry.objects.count(), 10)
 
 	def test_feed_update_on_save_is_configurable(self):
@@ -41,13 +41,13 @@ class TestValidFeed(TestCase):
 
 	def test_update_should_not_create_duplicate_entries(self):
 		self.feed.save(and_update = True)
-		self.feed.update()
+		self.feed.updater.run()
 		assert_equals(Entry.objects.count(), 10)
 
-	@raises(Feed.NotUpdatetableError)
+	@raises(ValueError)
 	def test_feed_update_should_raise_error_on_unsaved_instances(self):
 		feed = FeedFactory.build(source = 'some-feed-url')
-		self.feed.update()
+		feed.updater.run()
 
 	def test_feed_update_should_set_values_on_instance(self):
 		self.feed.save(and_update = True)
@@ -59,17 +59,17 @@ class TestValidFeed(TestCase):
 
 	def test_feed_update_should_log_parsing_errors(self):
 		feed = InvalidFeedFactory()
-		feed_valid = feed.update()
+		feed_valid = feed.updater.run()
 		assert_equals(ParsingError.objects.count(), 1)
 
 	def test_feed_update_should_return_false_if_invalid(self):
 		feed = InvalidFeedFactory()
-		feed_valid = feed.update()
+		feed_valid = feed.updater.run()
 		assert_false(feed_valid)
 
 	def test_feed_update_should_return_true_if_valid(self):
 		feed = FeedFactory()
-		feed_valid = feed.update()
+		feed_valid = feed.updater.run()
 		assert_true(feed_valid)
 
 	def test_update_should_generate_tags_for_entries(self):
@@ -83,12 +83,11 @@ class TestValidFeed(TestCase):
 		assert_true(self.feed in Feed.objects.all())
 		assert_false(self.feed in Feed.trashed.all())
 
-	@attr('wip')
 	def test_trashed_feeds_never_update(self):
 		self.feed.trashed_at = datetime.now()
 		self.feed.save()
 
-		assert_false(self.feed.update())
+		assert_false(self.feed.updater.run())
 
 class TestInvalidFeed(TestCase):
 

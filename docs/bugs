@@ -2,5 +2,5 @@
    > this happens because the date is a required field for an entry and it is defaulted to datetime.now() if not present
    > dates have to be left out on duplication checking, but this may lead to false positives
 
-2. Entries deleted from the database once enter it again on the next update cycle / helpers.feed_helpers.Feedparser
+2. Entries deleted from the database enter it again on the next update cycle / helpers.feed_helpers.FeedParser
    > entries should not be saved, when they would be expired right afterwards

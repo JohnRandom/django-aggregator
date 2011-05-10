@@ -6,4 +6,4 @@ class Command(BaseCommand):
 
 	def handle(self, *args, **options):
 		for feed in Feed.objects.all():
-			feed.update()
+			feed.updater.run()

@@ -25,10 +25,14 @@ class FeedParserTests(TestCase):
 	def test_feed_parser_should_not_parse_on_init(self):
 		assert_equal(self.parser.feed, None)
 
-	def test_feed_parser_defaults_should_containt_required_keys(self):
-		required_keys = ['title', 'link', 'description', 'etag', 'language_code']
+	def test_feed_parser_defaults_should_containt_required_keys_and_values(self):
 		defaults = self.parser.get_defaults()
-		assert_true(all([k in defaults for k in required_keys]))
+		assert_equals(defaults['description'], u'culture communication carbonite')
+		assert_equals(defaults['link'], u'http://logbuch.c-base.org')
+		assert_equals(defaults['title'], u'c-base logbuch')
+		assert_equals(defaults['language_code'], u'en')
+		assert_equals(defaults['language'], u'english')
+		assert_true('etag' in defaults.keys())
 
 	def test_feed_parser_should_not_raise_errors_on_valid_feeds(self):
 		self.parser.get_entries()

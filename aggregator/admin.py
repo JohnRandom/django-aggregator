@@ -5,19 +5,19 @@ from aggregator.models import Feed, Entry, ParsingError
 
 def update_feeds(modeladmin, request, queryset):
     for feed in queryset:
-    	feed.update()
+    	feed.updater.run()
 update_feeds.short_description = "Update selected feeds"
 
 class FeedAdmin(admin.ModelAdmin):
-	readonly_fields = ('title', 'link', 'description', 'etag', 'language')
-	list_display = ('source', 'title', 'description', 'language')
+	readonly_fields = ('title', 'link', 'description', 'etag', 'language', 'trashed_at')
+	list_display = ('source', 'title', 'description', 'language', 'content_expiration',)
 	list_filter = ('language',)
 	actions = [update_feeds]
 	fieldsets = (
 		(None, {
 			'fields': (
 				'source',
-				'trashed_at',
+				'content_expiration',
 			)
 		}),
 		('Extracted attributes', {
@@ -30,6 +30,7 @@ class FeedAdmin(admin.ModelAdmin):
 				'description',
 				'etag',
 				'language',
+				'trashed_at',
 			)
 		}),
 	)
@@ -60,6 +61,8 @@ class EntryAdmin(admin.ModelAdmin):
 
 class ParsingErrorAdmin(admin.ModelAdmin):
 	readonly_fields = ('feed', 'error_message', 'date_raised')
+	list_display = ('feed', 'error_message', 'date_raised',)
+	list_filter = ('feed__source', 'error_message',)
 
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(Entry, EntryAdmin)

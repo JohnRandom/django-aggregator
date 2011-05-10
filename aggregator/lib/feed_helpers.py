@@ -40,6 +40,16 @@ class FeedParser(object):
 		self.error = {'raised': 0, 'message': ''}
 
 	@parse_feed
+	def _map_language(self):
+
+		language_map = {
+			'en': 'english',
+			'de': 'german',
+		}
+
+		return language_map.get(self.feed.feed.get('language'), None)
+
+	@parse_feed
 	def _map_content(self):
 		feed = self.feed
 
@@ -48,7 +58,8 @@ class FeedParser(object):
 			'link': feed.feed.get('link', None),
 			'description': feed.feed.get('description', None),
 			'etag': feed.get('etag', None),
-			'language_code': feed.feed.get('language', None)
+			'language_code': feed.feed.get('language', None),
+			'language': self._map_language(),
 		}
 
 		self.error = {
