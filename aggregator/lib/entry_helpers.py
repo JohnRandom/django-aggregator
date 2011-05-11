@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 class EntryWrapper(object):
 	'''
@@ -22,8 +23,8 @@ class EntryWrapper(object):
 	def figure_date(self):
 		'''
 		Tries to guess the date the entry was published. It first looks into the
-		'published' date, then into the 'created' date and finally sets the current
-		date, if no other field was set.
+		'published' date, then into the 'created', then into 'updated' date and
+		finally sets the current date, if no other field was set.
 		'''
 
 		m = self.entry
@@ -31,9 +32,10 @@ class EntryWrapper(object):
 		if hasattr(m, 'published_parsed'): date = m.published_parsed
 		elif hasattr(m, 'created_parsed'): date = m.created_parsed
 		elif hasattr(m, 'updated_parsed'): date = m.updated_parsed
-		# always return the current time as default, and of type time.struct_time
-		else: date = time.strptime(time.ctime())
-		return time.strftime('%Y-%m-%d %H:%M:%S', date)
+		# always return the current time as default
+		else: date = time.localtime()
+		return datetime.fromtimestamp(time.mktime(date))
+		#return time.strftime('%Y-%m-%d %H:%M:%S', date)
 
 	def get_defaults(self):
 		'''

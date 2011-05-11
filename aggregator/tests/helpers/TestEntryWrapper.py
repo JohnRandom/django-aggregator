@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 import time
+from datetime import datetime
 from nose.tools import *
 from django.test import TestCase
 from nose.plugins.attrib import attr
@@ -21,31 +22,28 @@ class EntryWrapperTests(TestCase):
 		defaults = self.wrapper.get_defaults()
 		assert_true(all([key in defaults for key in required_keys]))
 
+	@attr('wip')
 	def test_returns_the_correct_values_for_defaults(self):
 		d = self.wrapper.get_defaults()
 		assert_equals(d['title'], u'Ubuntu 11.04 \u201eNatty Narwhal\u201c Releaseparty 21.05.2011')
-		assert_equals(d['date_published'], u'2011-04-29 20:11:43')
+		assert_equals(d['date_published'], datetime(2011, 04, 29, 20, 11, 43))
 		assert_equals(d['author'], u'macro')
 		assert_equals(d['link'], u'http://logbuch.c-base.org/archives/1170')
 
-	def test_date_is_assigned_in_defaults(self):
-		date = self.wrapper.get_defaults()['date_published']
-		assert_equal(type(date), str)
-
+	@attr('wip')
 	def test_date_is_assigned_even_if_not_present_in_entry(self):
 		date_less_entry = entry()
 		del date_less_entry['updated']
 		del date_less_entry['updated_parsed']
 
 		wrapper = EntryWrapper(date_less_entry)
-		date = wrapper.get_defaults()['date_published']
-		assert_equal(type(date), str)
+		defaults = wrapper.get_defaults()
+		assert_true(defaults.get('date_published', False))
 
-	def test_date_has_correct_format(self):
-		# YYYY-MM-DD HH:MM[:ss[.uuuuuu]]
+	@attr('wip')
+	def test_date_as_datetime(self):
 		date = self.wrapper.get_defaults()['date_published']
-		date_as_struct = time.strptime(date, '%Y-%m-%d %H:%M:%S')
-		assert_true(type(date_as_struct), time.struct_time)
+		assert_true(isinstance(date, datetime))
 
 	def test_wrapper_should_parse_tags(self):
 		tags = self.wrapper.get_tags()

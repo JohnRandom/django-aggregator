@@ -7,8 +7,13 @@ from nose.plugins.attrib import attr
 
 from aggregator.tests.factories import FeedFactory, InvalidFeedFactory
 from aggregator.models import Feed, Entry, ParsingError
+from aggregator.lib.updaters import feed_updater
 
 from taggit.models import Tag
+from mock import patch, Mock
+
+mocked_datetime = Mock()
+mocked_datetime.now = Mock(return_value = datetime(1990, 1, 1))
 
 class testif(object):
 
@@ -20,6 +25,7 @@ class testif(object):
 			return func(*args, **kwargs) if self.condition else True
 		return wrapper
 
+@patch('aggregator.lib.updaters.feed_updater.datetime', new = mocked_datetime)
 class TestValidFeed(TestCase):
 
 	def setUp(self):
@@ -28,6 +34,7 @@ class TestValidFeed(TestCase):
 	def teardown(self):
 		pass
 
+	@attr('wip')
 	def test_feed_update_has_to_be_specified(self):
 		self.feed.save()
 		assert_false(Entry.objects.count())

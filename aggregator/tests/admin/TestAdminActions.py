@@ -9,17 +9,17 @@ from aggregator.tests.factories import FeedFactory, InvalidFeedFactory
 from aggregator.models import Feed, Entry
 from aggregator.admin import update_feeds
 
+from mock import patch, Mock
+
 class AdminActionTests(TestCase):
 
 	def setUp(self):
-		self.feed = FeedFactory.build()
+		self.feed = Mock()
 
 	def teardown(self):
 		pass
 
+	@attr('wip')
 	def test_update_feed_action_updates_feeds(self):
-		self.feed.save()
-		assert_equals(Entry.objects.count(), 0)
-
 		update_feeds('aModelManager', 'aRequest', [self.feed])
-		assert_equals(Entry.objects.count(), 10)
+		assert_equals(self.feed.updater.run.call_count, 1)

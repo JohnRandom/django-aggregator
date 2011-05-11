@@ -34,6 +34,10 @@ class _FeedUpdater(object):
 	def __init__(self, instance):
 		self.instance = instance
 
+	def _is_entry_expired(self, wrapped_entry):
+		return wrapped_entry.get_defaults()['date_published']\
+				< datetime.now() - timedelta(days = self.instance.content_expiration)
+
 	@requires_instance
 	@untrashed_only
 	def run(self):
@@ -47,6 +51,7 @@ class _FeedUpdater(object):
 
 		# update entries
 		for entry in parser.get_entries():
+			if self._is_entry_expired(entry): continue
 			e, new = self.instance.entry_set.get_or_create(**entry.get_defaults())
 			e.tags.set(*entry.get_tags())
 			e.save()
