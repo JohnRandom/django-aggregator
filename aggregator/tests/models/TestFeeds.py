@@ -15,16 +15,6 @@ from mock import patch, Mock
 mocked_datetime = Mock()
 mocked_datetime.now = Mock(return_value = datetime(1990, 1, 1))
 
-class testif(object):
-
-	def __init__(self, condition):
-		self.condition = condition
-
-	def __call__(self, func):
-		def wrapper(*args, **kwargs):
-			return func(*args, **kwargs) if self.condition else True
-		return wrapper
-
 @patch('aggregator.lib.updaters.feed_updater.datetime', new = mocked_datetime)
 class TestValidFeed(TestCase):
 
@@ -34,7 +24,6 @@ class TestValidFeed(TestCase):
 	def teardown(self):
 		pass
 
-	@attr('wip')
 	def test_feed_update_has_to_be_specified(self):
 		self.feed.save()
 		assert_false(Entry.objects.count())

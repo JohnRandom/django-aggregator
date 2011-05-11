@@ -19,7 +19,6 @@ class AdminActionTests(TestCase):
 	def teardown(self):
 		pass
 
-	@attr('wip')
 	def test_update_feed_action_updates_feeds(self):
 		update_feeds('aModelManager', 'aRequest', [self.feed])
 		assert_equals(self.feed.updater.run.call_count, 1)

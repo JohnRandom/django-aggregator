@@ -22,7 +22,6 @@ class EntryWrapperTests(TestCase):
 		defaults = self.wrapper.get_defaults()
 		assert_true(all([key in defaults for key in required_keys]))
 
-	@attr('wip')
 	def test_returns_the_correct_values_for_defaults(self):
 		d = self.wrapper.get_defaults()
 		assert_equals(d['title'], u'Ubuntu 11.04 \u201eNatty Narwhal\u201c Releaseparty 21.05.2011')
@@ -30,7 +29,6 @@ class EntryWrapperTests(TestCase):
 		assert_equals(d['author'], u'macro')
 		assert_equals(d['link'], u'http://logbuch.c-base.org/archives/1170')
 
-	@attr('wip')
 	def test_date_is_assigned_even_if_not_present_in_entry(self):
 		date_less_entry = entry()
 		del date_less_entry['updated']
@@ -40,7 +38,6 @@ class EntryWrapperTests(TestCase):
 		defaults = wrapper.get_defaults()
 		assert_true(defaults.get('date_published', False))
 
-	@attr('wip')
 	def test_date_as_datetime(self):
 		date = self.wrapper.get_defaults()['date_published']
 		assert_true(isinstance(date, datetime))

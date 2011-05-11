@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 
 from aggregator.lib.updaters.feed_updater import FeedUpdater
-from aggregator.managers import UntrashedFeedManager, TrashedFeedManager, ExpiredEntriesManager
+from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
 
@@ -63,7 +63,6 @@ class Entry(models.Model):
 
 	tags = TaggableManager()
 	objects = models.Manager()
-	expired = ExpiredEntriesManager()
 
 	class Meta:
 		ordering = ('-date_published',)
