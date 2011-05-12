@@ -8,5 +8,7 @@ factory-boy==1.0.0
 feedparser==5.0.1
 ipython==0.10.2
 lettuce==0.1.27
+lxml==2.3
+mock==0.7.1
 nose==1.0.0
 wsgiref==0.1.2
