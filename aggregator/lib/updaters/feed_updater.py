@@ -67,12 +67,5 @@ class _FeedUpdater(object):
 		return self.instance.valid
 
 	@requires_instance
-	def get_expired_entries(self):
-		delta = timedelta(days = self.instance.content_expiration)
-		treshold = datetime.now() - delta
-
-		return self.instance.entry_set.filter(date_published__lte = treshold)
-
-	@requires_instance
 	def clean(self):
-		self.get_expired_entries().delete()
+		self.instance.get_expired_entries().delete()

@@ -7,5 +7,4 @@ class Command(BaseCommand):
 
 	def handle(self, *args, **options):
 		for feed in Feed.objects.all():
-			threshold = datetime.now() - timedelta(days = feed.content_expiration)
-			feed.entry_set.filter( date_published__lte = threshold ).delete()
+			feed.get_expired_entries().delete()

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.db import models
 from django.db.models.signals import post_save
@@ -28,6 +28,12 @@ class Feed(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)
+
+	def get_expired_entries(self):
+		delta = timedelta(days = self.content_expiration)
+		treshold = datetime.now() - delta
+
+		return self.entry_set.filter(date_published__lte = treshold)
 
 	@models.permalink
 	def get_absolute_url(self):
