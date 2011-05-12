@@ -81,9 +81,23 @@ class StaticContent(models.Model):
 
 	name = models.CharField(max_length = 255)
 	source = models.URLField('Source', max_length = 255)
-	date_parsed = models.DateTimeField(auto_now = True)
+	date_parsed = models.DateTimeField()
 
 	updater = StaticContentUpdater()
+
+	def is_ok(self):
+		return not self.staticcontenterror_set.count() > 0
+	is_ok.boolean = True
+
+	def log_error(self, e):
+		StaticContentError.objects.create(
+			source = self,
+			error = e.__class__.__name__,
+			message = e.message,
+		)
+
+	def get_expired_entries(self):
+		return self.selector_set.none()
 
 	def __unicode__(self):
 		return unicode(self.source)
@@ -97,3 +111,16 @@ class Selector(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.css_selector)
+
+class StaticContentError(models.Model):
+
+	source = models.ForeignKey(StaticContent)
+	error = models.CharField(max_length = 255)
+	message = models.CharField(max_length = 255)
+	date_raised = models.DateTimeField(auto_now_add = True)
+
+	class Meta:
+		ordering = ('-date_raised',)
+
+	def __unicode__(self):
+		return unicode("'%s' on source: %s" % (self.error, self.source))

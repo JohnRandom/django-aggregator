@@ -1,3 +1,4 @@
+from datetime import datetime
 from lxml import etree, html
 from lxml.cssselect import CSSSelector
 
@@ -8,6 +9,8 @@ def data_required(method):
 		return method(self, *args, **kwargs)
 	return wrapper
 
+
+
 class StaticContentParser(object):
 
 	def __init__(self, content_obj):
@@ -15,21 +18,25 @@ class StaticContentParser(object):
 		self.selectors = content_obj.selector_set.all()
 		self.data = None
 
+		self.desc.date_parsed = datetime.now()
+		self.desc.save()
+
 	def _parse_data(self):
 		self.data = html.parse(self.desc.source)
 
 	def _parse_nodes(self, selector):
 		sel = CSSSelector(selector.css_selector)
-		nodes = self._process_content(sel(self.data))
-		selector.bound_content = self._stringify_nodes(nodes)
+		nodes = self._stringify_nodes(sel(self.data))
+		nodes = self._process_str_content(nodes)
+		selector.bound_content = ''.join(nodes)
 		selector.save()
 		return selector.bound_content
 
-	def _process_content(self, content):
-		return content
+	def _process_str_content(self, content):
+		return [html.make_links_absolute(node, self.desc.source) for node in content]
 
 	def _stringify_nodes(self, nodes):
-		return ''.join( [etree.tostring(node) for node in nodes] )
+		return ( [etree.tostring(node) for node in nodes] )
 
 	@data_required
 	def get_nodes(self):

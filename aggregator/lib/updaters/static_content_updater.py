@@ -9,6 +9,14 @@ def requires_instance(method):
 			return method(self, *args, **kwargs)
 	return wrapper
 
+def rescue_lxml_error(method):
+	def wrapper(self, *args, **kwargs):
+		try:
+			return method(self, *args, **kwargs)
+		except IOError, e:
+			self.instance.log_error(e)
+	return wrapper
+
 class StaticContentUpdater(object):
 
 	def __get__(self, instance, model):
@@ -27,6 +35,7 @@ class _StaticContentUpdater(object):
 		self.instance = instance
 
 	@requires_instance
+	@rescue_lxml_error
 	def run(self):
 		parser = StaticContentParser(self.instance)
 		parser.process_nodes()

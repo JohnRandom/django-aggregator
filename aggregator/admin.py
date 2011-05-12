@@ -1,12 +1,13 @@
 from datetime import datetime
 
 from django.contrib import admin
-from aggregator.models import Feed, Entry, ParsingError, StaticContent, Selector
+from aggregator.models import Feed, Entry, ParsingError, StaticContent, Selector, StaticContentError
+from aggregator.forms import StaticContentForm
 
 def update_feeds(modeladmin, request, queryset):
     for feed in queryset:
     	feed.updater.run()
-update_feeds.short_description = "Update selected feeds"
+update_feeds.short_description = "Update selected sources"
 
 class FeedAdmin(admin.ModelAdmin):
 	readonly_fields = ('title', 'link', 'description', 'etag', 'language', 'trashed_at')
@@ -64,13 +65,23 @@ class ParsingErrorAdmin(admin.ModelAdmin):
 	list_display = ('feed', 'error_message', 'date_raised',)
 	list_filter = ('feed__source', 'error_message',)
 
+
 class SelectorInline(admin.StackedInline):
 	model = Selector
+	fields = ('name', 'css_selector', 'bound_content')
 	readonly_fields = ('bound_content',)
 
+class StaticContentErrorInline(admin.TabularInline):
+	model = StaticContentError
+	readonly_fields = ('error', 'message', 'date_raised')
+
 class StaticContentAdmin(admin.ModelAdmin):
-	inlines = [ SelectorInline, ]
+	inlines = [ SelectorInline, StaticContentErrorInline]
 	actions = [ update_feeds ]
+	form = StaticContentForm
+	list_display = ('name', 'source', 'is_ok', 'date_parsed')
+	readonly_fields = ('date_parsed',)
+
 
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(Entry, EntryAdmin)
