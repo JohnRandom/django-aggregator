@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib import admin
-from aggregator.models import Feed, Entry, ParsingError
+from aggregator.models import Feed, Entry, ParsingError, StaticContent, Selector
 
 def update_feeds(modeladmin, request, queryset):
     for feed in queryset:
@@ -64,6 +64,15 @@ class ParsingErrorAdmin(admin.ModelAdmin):
 	list_display = ('feed', 'error_message', 'date_raised',)
 	list_filter = ('feed__source', 'error_message',)
 
+class SelectorInline(admin.StackedInline):
+	model = Selector
+	readonly_fields = ('bound_content',)
+
+class StaticContentAdmin(admin.ModelAdmin):
+	inlines = [ SelectorInline, ]
+	actions = [ update_feeds ]
+
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(Entry, EntryAdmin)
 admin.site.register(ParsingError, ParsingErrorAdmin)
+admin.site.register(StaticContent, StaticContentAdmin)

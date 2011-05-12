@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 
 from aggregator.lib.updaters.feed_updater import FeedUpdater
+from aggregator.lib.updaters.static_content_updater import StaticContentUpdater
 from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
@@ -75,3 +76,24 @@ class Entry(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title)
+
+class StaticContent(models.Model):
+
+	name = models.CharField(max_length = 255)
+	source = models.URLField('Source', max_length = 255)
+	date_parsed = models.DateTimeField(auto_now = True)
+
+	updater = StaticContentUpdater()
+
+	def __unicode__(self):
+		return unicode(self.source)
+
+class Selector(models.Model):
+
+	parent = models.ForeignKey(StaticContent)
+	css_selector = models.CharField(max_length = 255)
+	name = models.CharField(max_length = 255, blank = True, null = True)
+	bound_content = models.TextField(blank = True, null = True)
+
+	def __unicode__(self):
+		return unicode(self.css_selector)
