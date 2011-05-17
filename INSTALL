@@ -23,6 +23,12 @@ BASIC TOOLS
    MySQL are available on your system, the client needs to be compiled from source during
    the installation process.
 
+   OSX: on osx with XCode 4 installed building the mysql bindings might fail with error code 1 on
+   the gcc. In that case it might be due to the fact that arch flags are deprecated with XCode 4.
+   Try:
+   
+   ~$: export ARCHFLAGS='-arch i386 -arch x86_64'
+
 5. Now activate the virtual environment via:
 
    ~$: source <virtualenv dir>/bin/activate

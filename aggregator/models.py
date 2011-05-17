@@ -81,7 +81,7 @@ class StaticContent(models.Model):
 
 	name = models.CharField(max_length = 255)
 	source = models.URLField('Source', max_length = 255)
-	date_parsed = models.DateTimeField()
+	date_parsed = models.DateTimeField(auto_now_add = True)
 
 	updater = StaticContentUpdater()
 
@@ -100,7 +100,7 @@ class StaticContent(models.Model):
 		return self.selector_set.none()
 
 	def __unicode__(self):
-		return unicode(self.source)
+		return unicode(self.name or self.source)
 
 class Selector(models.Model):
 

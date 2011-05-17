@@ -9,8 +9,6 @@ def data_required(method):
 		return method(self, *args, **kwargs)
 	return wrapper
 
-
-
 class StaticContentParser(object):
 
 	def __init__(self, content_obj):
