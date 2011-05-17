@@ -20,7 +20,6 @@ class CleanEntryTests(TestCase):
 	def teardown(self):
 		pass
 
-	@attr('wip')
 	def test_clean_up_should_remove_expired_entries(self):
 		self.entry.feed.content_expiration = 7
 		self.entry.feed.save()
@@ -29,7 +28,6 @@ class CleanEntryTests(TestCase):
 		call('cleanentries')
 		assert_equals(Entry.objects.count(), 0)
 
-	@attr('wip')
 	def test_clean_up_should_not_remove_entries_not_yet_expired(self):
 		self.entry.feed.content_expiration = 14
 		self.entry.feed.save()
