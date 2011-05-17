@@ -79,7 +79,7 @@ class Entry(models.Model):
 
 class StaticContent(models.Model):
 
-	name = models.CharField(max_length = 255)
+	name = models.CharField(max_length = 255, unique = True)
 	source = models.URLField('Source', max_length = 255)
 	date_parsed = models.DateTimeField(auto_now_add = True)
 

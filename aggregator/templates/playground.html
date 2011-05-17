@@ -5,5 +5,10 @@
     <h1>Newest entries</h1>
     {% load aggregates %}
     {% aggregate_feeds 'all' %}
+	<h1>Static Content</h1>
+	<h2>Vergangene Projecte</h2>
+	{% static_content "Vergangene Projecte" %}
+	<h2>SemiNare</h2>
+	{% static_content "SemiNare" %}
   </body>
 </html>
