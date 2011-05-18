@@ -9,6 +9,12 @@ from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
 
+class SourceCategory(models.Model):
+	name = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return unicode(self.name)
+
 class Feed(models.Model):
 
 	source = models.CharField("Source", max_length = 255)
@@ -22,6 +28,7 @@ class Feed(models.Model):
 	valid = models.BooleanField(default = True)
 	trashed_at = models.DateTimeField("Trashed", blank = True, null = True)
 	content_expiration = models.SmallIntegerField("Content expiration", default = 7)
+	category = models.ForeignKey(SourceCategory, blank = True, null = True)
 
 	objects = UntrashedFeedManager()
 	trashed = TrashedFeedManager()
@@ -29,6 +36,10 @@ class Feed(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)
+
+	def is_ok(self):
+		return not self.parsingerror_set.count() > 0
+	is_ok.boolean = True
 
 	def get_expired_entries(self):
 		delta = timedelta(days = self.content_expiration)
@@ -82,6 +93,7 @@ class StaticContent(models.Model):
 	name = models.CharField(max_length = 255, unique = True)
 	source = models.URLField('Source', max_length = 255)
 	date_parsed = models.DateTimeField(auto_now_add = True)
+	category = models.ForeignKey(SourceCategory, blank = True, null = True)
 
 	updater = StaticContentUpdater()
 

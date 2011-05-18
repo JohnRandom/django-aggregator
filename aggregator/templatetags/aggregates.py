@@ -24,4 +24,4 @@ def static_content(identifier):
 	try: content = StaticContent.objects.get(name = identifier)
 	except StaticContent.DoesNotExist: return u''
 
-	return u''.join([sel.bound_content for sel in content.selector_set.all()])
+	return u'\n'.join([sel.bound_content for sel in content.selector_set.all()])

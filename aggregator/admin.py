@@ -9,11 +9,39 @@ def update_feeds(modeladmin, request, queryset):
     	feed.updater.run()
 update_feeds.short_description = "Update selected sources"
 
+class ParsingErrorInline(admin.TabularInline):
+	model = ParsingError
+	readonly_fields = ('feed', 'error_message', 'date_raised')
+
+class EntryInline(admin.StackedInline):
+	model = Entry
+	readonly_fields = ('title', 'author', 'date_published', 'feed', 'link')
+	fieldsets = (
+		(None, {
+			'fields': (
+				'title',
+				'tags',
+			)
+		}),
+		('Read only', {
+			'classes': (
+				'collapse',
+			),
+			'fields': (
+				'author',
+				'date_published',
+				'link',
+				'feed',
+			)
+		}),
+	)
+
 class FeedAdmin(admin.ModelAdmin):
 	readonly_fields = ('title', 'link', 'description', 'etag', 'language', 'trashed_at')
-	list_display = ('source', 'title', 'description', 'language', 'content_expiration',)
+	list_display = ('source', 'title', 'description', 'language', 'content_expiration', 'is_ok')
 	list_filter = ('language',)
 	actions = [update_feeds]
+	inlines = [EntryInline, ParsingErrorInline]
 	fieldsets = (
 		(None, {
 			'fields': (
@@ -60,12 +88,6 @@ class EntryAdmin(admin.ModelAdmin):
 		}),
 	)
 
-class ParsingErrorAdmin(admin.ModelAdmin):
-	readonly_fields = ('feed', 'error_message', 'date_raised')
-	list_display = ('feed', 'error_message', 'date_raised',)
-	list_filter = ('feed__source', 'error_message',)
-
-
 class SelectorInline(admin.StackedInline):
 	model = Selector
 	fields = ('name', 'css_selector', 'bound_content')
@@ -84,6 +106,4 @@ class StaticContentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Feed, FeedAdmin)
-admin.site.register(Entry, EntryAdmin)
-admin.site.register(ParsingError, ParsingErrorAdmin)
 admin.site.register(StaticContent, StaticContentAdmin)
