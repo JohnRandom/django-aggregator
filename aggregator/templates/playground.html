@@ -2,13 +2,31 @@
   <head>
   </head>
   <body>
+	{% include "_user_navigation.html" %}
+
     <h1>Newest entries</h1>
     {% load aggregates %}
-    {% aggregate_feeds 'all' %}
+    {% aggregate_feeds 10 %}
 	<h1>Static Content</h1>
 	<h2>Vergangene Projecte</h2>
+	<div style="border: solid 1px; padding: 10px; margin: 5px;">
 	{% static_content "Vergangene Projecte" %}
+	</div>
 	<h2>SemiNare</h2>
+	<div style="border: solid 1px; padding: 10px; margin: 5px;">
 	{% static_content "SemiNare" %}
+	</div>
+	<h2>WikiSandBox</h2>
+	<div style="border: solid 1px; padding: 10px; margin: 5px;">
+	{% static_content "WikiSandBox" %}
+	</div>
+	<h2>FrontPage</h2>
+	<div style="border: solid 1px; padding: 10px; margin: 5px;">
+	{% static_content "FrontPage" %}
+	</div>
+	<h2>Sponsors</h2>
+	<div style="border: solid 1px; padding: 10px; margin: 5px;">
+	{% static_content "Sponsors" %}
+	</div>
   </body>
 </html>
