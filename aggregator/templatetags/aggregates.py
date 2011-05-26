@@ -12,10 +12,10 @@ register = template.Library()
 def aggregate_feeds(amount):
 	if type(amount) == int:
 		entries = Entry.objects.all()[:int(amount)]
-	elif isinstance(amount, SafeUnicode) and amount == 'all':
+	elif (isinstance(amount, SafeUnicode) or type(amount) == unicode) and amount == 'all':
 		entries = Entry.objects.all()
 	else:
-		raise Exception()
+		raise Exception("'amount' must be an instance of SafeUnicode, found %s instead" % amount.__class__.__name__)
 
 	return {'entries': entries}
 
