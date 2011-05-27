@@ -3,7 +3,6 @@ except ImportError: from aggregator.aggregator_settings import aggregate_feeds_t
 
 from django import template
 from django.conf import settings
-from django.utils.safestring import SafeUnicode
 from aggregator.models import Feed, Entry, StaticContent
 
 register = template.Library()
@@ -25,3 +24,35 @@ def static_content(identifier):
 	except StaticContent.DoesNotExist: return u''
 
 	return u'\n'.join([sel.bound_content for sel in content.selector_set.all()])
+
+import ttag
+
+class TemplateRenderingTag(ttag.Tag):
+
+	template = None
+
+	def render(self, context):
+		output = self.output(self.resolve(context))
+		if self.template is not None:
+			return template.loader.render_to_string(self.template, output)
+		else:
+			return output
+
+class AggregateFeeds(TemplateRenderingTag):
+
+	class Meta:
+		name = 'aggregatefeeds'
+
+	limit = ttag.Arg(keyword = True)
+	template = aggregate_feeds_template
+
+	def output(self, data):
+		limit = data.get('limit', 0)
+
+		if limit > 0:
+			entries = Entry.objects.all()[:limit]
+		else:
+			entries = Entry.objects.all()
+
+		return {'entries': entries}
+register.tag(AggregateFeeds)

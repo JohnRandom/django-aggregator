@@ -8,7 +8,7 @@
 
     <h1>Newest entries</h1>
     {% load aggregates %}
-    {% aggregate_feeds 10 %}
+    {% aggregatefeeds limit=5 %}
 	<h1>Static Content</h1>
 	<h2>Vergangene Projecte</h2>
 	<div style="border: solid 1px; padding: 10px; margin: 5px;">
@@ -18,17 +18,9 @@
 	<div style="border: solid 1px; padding: 10px; margin: 5px;">
 	{% static_content "SemiNare" %}
 	</div>
-	<h2>WikiSandBox</h2>
-	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "WikiSandBox" %}
-	</div>
-	<h2>FrontPage</h2>
-	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "FrontPage" %}
-	</div>
 	<h2>Sponsors</h2>
 	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "Sponsors" %}
+	{% static_content "current c-base landing page" %}
 	</div>
   </body>
 </html>
