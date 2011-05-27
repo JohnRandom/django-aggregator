@@ -1,20 +1,12 @@
 try: from settings import aggregate_feeds_template
 except ImportError: from aggregator.aggregator_settings import aggregate_feeds_template
 
+import ttag
 from django import template
 from django.conf import settings
-from aggregator.models import Feed, Entry, StaticContent
+from aggregator.models import Feed, Entry, StaticContent as StaticContentModel
 
 register = template.Library()
-
-@register.simple_tag
-def static_content(identifier):
-	try: content = StaticContent.objects.get(name = identifier)
-	except StaticContent.DoesNotExist: return u''
-
-	return u'\n'.join([sel.bound_content for sel in content.selector_set.all()])
-
-import ttag
 
 class TemplateRenderingTag(ttag.Tag):
 
@@ -29,10 +21,7 @@ class TemplateRenderingTag(ttag.Tag):
 
 class AggregateFeeds(TemplateRenderingTag):
 
-	class Meta:
-		name = 'aggregatefeeds'
-
-	limit = ttag.Arg(keyword = True)
+	limit = ttag.Arg(keyword = True, default = 0)
 	template = aggregate_feeds_template
 
 	def output(self, data):
@@ -45,3 +34,15 @@ class AggregateFeeds(TemplateRenderingTag):
 
 		return {'entries': entries}
 register.tag(AggregateFeeds)
+
+class StaticContent(ttag.Tag):
+
+	identifier = ttag.Arg()
+
+	def output(self, data):
+		identifier = data.get('identifier')
+		try: content = StaticContentModel.objects.get(name = identifier)
+		except StaticContentModel.DoesNotExist: return u''
+
+		return u'\n'.join([sel.bound_content for sel in content.selector_set.all()])
+register.tag(StaticContent)
