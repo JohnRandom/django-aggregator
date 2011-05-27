@@ -4,9 +4,16 @@ from django.db import models
 from django.db.models.signals import post_save
 
 from aggregator.lib.updaters.feed_updater import FeedUpdater
+from aggregator.lib.updaters.static_content_updater import StaticContentUpdater
 from aggregator.managers import UntrashedFeedManager, TrashedFeedManager
 
 from taggit.managers import TaggableManager
+
+class SourceCategory(models.Model):
+	name = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return unicode(self.name)
 
 class Feed(models.Model):
 
@@ -21,6 +28,7 @@ class Feed(models.Model):
 	valid = models.BooleanField(default = True)
 	trashed_at = models.DateTimeField("Trashed", blank = True, null = True)
 	content_expiration = models.SmallIntegerField("Content expiration", default = 7)
+	category = models.ForeignKey(SourceCategory, blank = True, null = True)
 
 	objects = UntrashedFeedManager()
 	trashed = TrashedFeedManager()
@@ -28,6 +36,10 @@ class Feed(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title or self.source)
+
+	def is_ok(self):
+		return not self.parsingerror_set.count() > 0
+	is_ok.boolean = True
 
 	def get_expired_entries(self):
 		delta = timedelta(days = self.content_expiration)
@@ -75,3 +87,52 @@ class Entry(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.title)
+
+class StaticContent(models.Model):
+
+	name = models.CharField(max_length = 255, unique = True)
+	source = models.URLField('Source', max_length = 255)
+	date_parsed = models.DateTimeField(auto_now_add = True)
+	category = models.ForeignKey(SourceCategory, blank = True, null = True)
+
+	updater = StaticContentUpdater()
+
+	def is_ok(self):
+		return not self.staticcontenterror_set.count() > 0
+	is_ok.boolean = True
+
+	def log_error(self, e):
+		StaticContentError.objects.create(
+			source = self,
+			error = e.__class__.__name__,
+			message = e.message,
+		)
+
+	def get_expired_entries(self):
+		return self.selector_set.none()
+
+	def __unicode__(self):
+		return unicode(self.name or self.source)
+
+class Selector(models.Model):
+
+	parent = models.ForeignKey(StaticContent)
+	css_selector = models.CharField(max_length = 255)
+	name = models.CharField(max_length = 255, blank = True, null = True)
+	bound_content = models.TextField(blank = True, null = True)
+
+	def __unicode__(self):
+		return unicode(self.css_selector)
+
+class StaticContentError(models.Model):
+
+	source = models.ForeignKey(StaticContent)
+	error = models.CharField(max_length = 255)
+	message = models.CharField(max_length = 255)
+	date_raised = models.DateTimeField(auto_now_add = True)
+
+	class Meta:
+		ordering = ('-date_raised',)
+
+	def __unicode__(self):
+		return unicode("'%s' on source: %s" % (self.error, self.source))

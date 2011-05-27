@@ -1,5 +1,6 @@
 import os
 import factory
+from lxml import html
 from mock import Mock, mocksignature
 from datetime import datetime
 from aggregator.models import Feed, Entry
@@ -55,3 +56,12 @@ class FeedMock(Mock):
 
 FeedParserMock = Mock(spec = FeedParser)
 FeedParserMock.get_defaults = Mock(return_value = feed_defaults)
+
+class StaticContentMock(Mock):
+	source = PropertyMock(return_value = 'http://mocked.source/')
+
+class SelectorMock(Mock):
+	css_selector = PropertyMock(return_value = 'div#content')
+
+static_content_html = '<html><head></head><body><div id="content"><a href="/test">a link</a></div></body></html>'
+static_content_parsed = html.fromstring(static_content_html)
