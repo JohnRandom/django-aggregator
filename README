@@ -1,0 +1,5 @@
+django-aggregator 0.2
+
+django-aggregator is a work in progress development of the content aggregation module for the new c-base.org landing page. It's purpose is to collect content from various sources like RSS feeds and wiki pages of http://coredump.c-base.org/coredump/.
+
+Currently there are two modules for each source respectively: Feed and StaticContent. A set of templatetags support the rendering of this content in various places all over the landing page.
