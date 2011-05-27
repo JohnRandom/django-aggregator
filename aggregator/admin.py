@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib import admin
-from aggregator.models import Feed, Entry, ParsingError, StaticContent, Selector, StaticContentError
+from aggregator.models import Feed, Entry, ParsingError, StaticContent, Selector, StaticContentError, SourceCategory
 from aggregator.forms import StaticContentForm
 
 def update_feeds(modeladmin, request, queryset):
@@ -107,3 +107,4 @@ class StaticContentAdmin(admin.ModelAdmin):
 
 admin.site.register(Feed, FeedAdmin)
 admin.site.register(StaticContent, StaticContentAdmin)
+admin.site.register(SourceCategory)
