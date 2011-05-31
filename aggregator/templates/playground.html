@@ -8,11 +8,11 @@
 
     <h1>Newest entries</h1>
     {% load aggregates %}
-    {% aggregate_feeds limit=5 %}
+    {% aggregate_feeds limit=5 template="templatetags/onlytopics.html"%}
 	<h1>Static Content</h1>
-	<h2>Vergangene Projecte</h2>
+	<h2>Wer ist zust&auml;ndig?</h2>
 	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "Vergangene Projecte" %}
+	{% static_content "zustaendigkeiten" %}
 	</div>
 	<h2>SemiNare</h2>
 	<div style="border: solid 1px; padding: 10px; margin: 5px;">
