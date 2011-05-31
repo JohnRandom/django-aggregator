@@ -1,10 +1,11 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.core.urlresolvers import reverse
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('aggregator.urls')),
-	url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/playground/'}),
+    url(r'aggregator/', include('aggregator.urls')),
+	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name = 'login_view'),
+	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name = 'logout_view'),
 )
