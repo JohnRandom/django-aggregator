@@ -1,6 +1,24 @@
 from datetime import datetime, timedelta
 from aggregator.lib.feed_helpers import FeedParser
 
+FEED_FIELDS = {
+	'source': 255,
+	'title': 255,
+	'link': 255,
+	'description': 255,
+	'etag': 255,
+	'language': 100,
+	'language_code': 50,
+}
+
+def truncate(fields, truncator = '...'):
+	for name, value in fields.iteritems():
+		if not FEED_FIELDS.has_key(name) or value is None: continue
+		max_length = FEED_FIELDS[name]
+		if len(value) > max_length:
+			fields[name] = "%s %s" % (value[:max_length - (len(truncator) + 1)], truncator)
+	return fields
+
 def requires_instance(method):
 	def wrapper(self, *args, **kwargs):
 		if self.instance is None:
@@ -46,7 +64,7 @@ class _FeedUpdater(object):
 
 		# update instance
 		if parser.feed.get('status', False) == 304: return True
-		self.instance.__dict__.update(**defaults)
+		self.instance.__dict__.update(**truncate(defaults))
 		self.instance.save()
 
 		# update entries
