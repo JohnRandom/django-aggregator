@@ -20,7 +20,7 @@ def stylesheets(directory):
     root = os.path.join(CSS_ROOT, os.path.normpath(directory), '*.css')
     for css_file in glob(root):
         if not os.path.isfile(css_file): continue
-        ressource_url = settings.MEDIA_URL + os.path.relpath(css_file, STATIC_ROOT)
+        ressource_url = settings.STATIC_URL + os.path.relpath(css_file, STATIC_ROOT)
         links.append(LINK_TAG % ressource_url)
 
     return '\n'.join(links)
