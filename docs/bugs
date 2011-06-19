@@ -2,5 +2,5 @@
    > this happens because the date is a required field for an entry and it is defaulted to datetime.now() if not present
    > dates have to be left out on duplication checking, but this may lead to false positives
 
-2. Some model fields with max length are throwing truncation errors
-	> <Feed: http://c-base.org/>
+2. StaticContent pulled from other pages may contain nodes with an ID property, which potentially leads to multiple nodes with the same ID on the landing page
+   > lxml should convert each ID found to a class

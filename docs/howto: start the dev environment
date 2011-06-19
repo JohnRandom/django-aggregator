@@ -1,0 +1,13 @@
+This document describes how to start the already setup dev environment
+
+1. change directory to the project root folder
+
+2. activate the virtualenv for the current project:
+  ~ $ source <path-to-virtualenv>/bin/activate
+
+(3.) start the development server
+  ~ $ python manage.py runserver
+
+Notes
+  to get a list of management commands available, do:
+  ~ $ python manage.py --help
