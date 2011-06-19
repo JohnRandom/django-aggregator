@@ -1,6 +1,16 @@
-<h1>das_docc index.html</h1>
+<html>
+<head>
+    {% block 'links' %}
+        {% load import %}
+        {% all_stylesheets %}
+    {% endblock %}
+</head>
+<body>
+    <h1>das_docc index.html</h1>
 
-<ul>
-	<li><a href="{% url playground_view %}">playground</a></li>
-	<li><a href="{% url admin:index %}">admin</a></li>
-</ul>
+    <ul>
+    	<li><a href="{% url playground_view %}">playground</a></li>
+    	<li><a href="{% url admin:index %}">admin</a></li>
+    </ul>
+</body>
+</html>

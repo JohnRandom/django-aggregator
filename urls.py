@@ -6,7 +6,7 @@ admin.autodiscover()
 from landing_page.views import IndexView
 
 urlpatterns = patterns('',
-	url(r'^$', IndexView.as_view(), name = 'index_view'),
+	url(r'^$', include('landing_page.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'aggregator/', include('aggregator.urls')),
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name = 'login_view'),
