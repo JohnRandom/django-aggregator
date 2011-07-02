@@ -62,7 +62,6 @@ class TruncateTests(TestCase):
 
 			assert_equals(result['unspecified_field'], 'a')
 
-	@attr('wip')
 	def test_truncator_should_handle_NoneType_content(self):
 		with patch.dict('aggregator.lib.updaters.feed_updater.FEED_FIELDS', self.FIELDS):
 			test_data = self.test_data
