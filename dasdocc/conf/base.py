@@ -53,7 +53,7 @@ TEMPLATE_DIRS = (
 )
 
 LETTUCE_APPS = (
-	'aggregator',
+    'aggregator',
 )
 
 INSTALLED_APPS = (
@@ -66,12 +66,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # 'django.contrib.admindocs',
     'aggregator',
-	'landing_page',
+    'landing_page',
     'south',
     'django_nose',
     'debug_toolbar',
     'taggit',
-	'lettuce.django',
+    'lettuce.django',
 )
 
 

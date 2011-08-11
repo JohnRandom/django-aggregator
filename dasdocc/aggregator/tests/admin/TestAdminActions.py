@@ -13,12 +13,12 @@ from mock import patch, Mock
 
 class AdminActionTests(TestCase):
 
-	def setUp(self):
-		self.feed = Mock()
+    def setUp(self):
+        self.feed = Mock()
 
-	def teardown(self):
-		pass
+    def teardown(self):
+        pass
 
-	def test_update_feed_action_updates_feeds(self):
-		update_feeds('aModelManager', 'aRequest', [self.feed])
-		assert_equals(self.feed.updater.run.call_count, 1)
+    def test_update_feed_action_updates_feeds(self):
+        update_feeds('aModelManager', 'aRequest', [self.feed])
+        assert_equals(self.feed.updater.run.call_count, 1)

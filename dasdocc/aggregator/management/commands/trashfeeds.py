@@ -6,10 +6,10 @@ try: from settings import TRASH_EXPIRATION
 except ImportError: from dasdocc.aggregator.aggregator_settings import TRASH_EXPIRATION
 
 class Command(BaseCommand):
-	help = 'trashes all invalid feeds'
+    help = 'trashes all invalid feeds'
 
-	def handle(self, *args, **options):
-		delta = timedelta(seconds = TRASH_EXPIRATION)
-		treshold = datetime.now() - delta
+    def handle(self, *args, **options):
+        delta = timedelta(seconds = TRASH_EXPIRATION)
+        treshold = datetime.now() - delta
 
-		Feed.trashed.filter(trashed_at__lte = treshold).delete()
+        Feed.trashed.filter(trashed_at__lte = treshold).delete()

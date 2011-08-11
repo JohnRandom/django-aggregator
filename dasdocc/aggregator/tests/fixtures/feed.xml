@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:atom="http://www.w3.org/2005/Atom"
-	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	>
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    >
 
 <channel>
-	<title>c-base logbuch</title>
-	<atom:link href="http://logbuch.c-base.org/feed" rel="self" type="application/rss+xml" />
-	<link>http://logbuch.c-base.org</link>
-	<description>culture communication carbonite</description>
-	<lastBuildDate>Fri, 29 Apr 2011 22:07:49 +0000</lastBuildDate>
-	<language>en</language>
-	<sy:updatePeriod>hourly</sy:updatePeriod>
-	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>http://wordpress.org/?v=3.1.2</generator>
-		<item>
-		<title>Ubuntu 11.04 „Natty Narwhal“ Releaseparty 21.05.2011</title>
-		<link>http://logbuch.c-base.org/archives/1170</link>
-		<comments>http://logbuch.c-base.org/archives/1170#comments</comments>
-		<pubDate>Fri, 29 Apr 2011 19:11:43 +0000</pubDate>
-		<dc:creator>macro</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
-		<category><![CDATA[com]]></category>
+    <title>c-base logbuch</title>
+    <atom:link href="http://logbuch.c-base.org/feed" rel="self" type="application/rss+xml" />
+    <link>http://logbuch.c-base.org</link>
+    <description>culture communication carbonite</description>
+    <lastBuildDate>Fri, 29 Apr 2011 22:07:49 +0000</lastBuildDate>
+    <language>en</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <generator>http://wordpress.org/?v=3.1.2</generator>
+        <item>
+        <title>Ubuntu 11.04 „Natty Narwhal“ Releaseparty 21.05.2011</title>
+        <link>http://logbuch.c-base.org/archives/1170</link>
+        <comments>http://logbuch.c-base.org/archives/1170#comments</comments>
+        <pubDate>Fri, 29 Apr 2011 19:11:43 +0000</pubDate>
+        <dc:creator>macro</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
+        <category><![CDATA[com]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1170</guid>
-		<description><![CDATA[Zur Feier der Veröffentlichung von Ubuntu 11.04 „Natty Narwhal“ veranstaltet die Anwendergruppe „Ubuntu-Berlin“ nun schon zum elften Mal eine Releaseparty. Natty bringt neben anderen Verbesserungen auch bisher unübertroffene Unterstützung für Multitouchgeräte mit, die einen Schwerpunkt des Vortragsprogramms bilden. * Datum: Samstag, der 21.05.2011 * Einlass: ab 15 Uhr, der Eintritt ist frei * Vorträge ab [...]]]></description>
-			<content:encoded><![CDATA[<p><a href="http://logbuch.c-base.org/wp-content/uploads/2011/04/ubuntu_natty_narwhal.png"><img src="http://logbuch.c-base.org/wp-content/uploads/2011/04/ubuntu_natty_narwhal.png" alt="" title="ubuntu_natty_narwhal" width="550"  class="alignnone size-full wp-image-1171" /></a><br />
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1170</guid>
+        <description><![CDATA[Zur Feier der Veröffentlichung von Ubuntu 11.04 „Natty Narwhal“ veranstaltet die Anwendergruppe „Ubuntu-Berlin“ nun schon zum elften Mal eine Releaseparty. Natty bringt neben anderen Verbesserungen auch bisher unübertroffene Unterstützung für Multitouchgeräte mit, die einen Schwerpunkt des Vortragsprogramms bilden. * Datum: Samstag, der 21.05.2011 * Einlass: ab 15 Uhr, der Eintritt ist frei * Vorträge ab [...]]]></description>
+            <content:encoded><![CDATA[<p><a href="http://logbuch.c-base.org/wp-content/uploads/2011/04/ubuntu_natty_narwhal.png"><img src="http://logbuch.c-base.org/wp-content/uploads/2011/04/ubuntu_natty_narwhal.png" alt="" title="ubuntu_natty_narwhal" width="550"  class="alignnone size-full wp-image-1171" /></a><br />
 <br />
 Zur Feier der Veröffentlichung von Ubuntu 11.04 „Natty Narwhal“ veranstaltet die Anwendergruppe „Ubuntu-Berlin“ nun schon zum elften Mal eine Releaseparty. Natty bringt neben anderen Verbesserungen auch bisher unübertroffene Unterstützung für Multitouchgeräte mit, die einen Schwerpunkt des Vortragsprogramms bilden.</p>
 <p>* Datum: Samstag, der 21.05.2011<br />
@@ -53,25 +53,25 @@ Lageplan bei <a href="http://www.openstreetmap.de/karte.html?zoom=17&#038;lat=52
 <p><a href="http://ubuntu-berlin.de/natty-release-party">http://ubuntu-berlin.de/natty-release-party</a></p>
 <p>Ubuntu und seine Logos sind eingetragene Warenzeichen von Canonical Ltd. Der Flyer und der obige Text stehen unter der Lizenz Creative Commons CC-BY-SA 3.0.</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1170/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Intel AppLab: MeeGo Freeday</title>
-		<link>http://logbuch.c-base.org/archives/1167</link>
-		<comments>http://logbuch.c-base.org/archives/1167#comments</comments>
-		<pubDate>Thu, 21 Apr 2011 07:00:01 +0000</pubDate>
-		<dc:creator>zehjotkah</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
-		<category><![CDATA[AppLab]]></category>
-		<category><![CDATA[Intel]]></category>
-		<category><![CDATA[MeeGo Freeday]]></category>
-		<category><![CDATA[meetmeego]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1170/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>Intel AppLab: MeeGo Freeday</title>
+        <link>http://logbuch.c-base.org/archives/1167</link>
+        <comments>http://logbuch.c-base.org/archives/1167#comments</comments>
+        <pubDate>Thu, 21 Apr 2011 07:00:01 +0000</pubDate>
+        <dc:creator>zehjotkah</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
+        <category><![CDATA[AppLab]]></category>
+        <category><![CDATA[Intel]]></category>
+        <category><![CDATA[MeeGo Freeday]]></category>
+        <category><![CDATA[meetmeego]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1167</guid>
-		<description><![CDATA[meetmeego.org holt euch das Intel® AppUpSM Application Lab nach Berlin! Beim Intel AppLab erfährst Du jede Menge über die Programmierung mit und für MeeGo und über das Intel AppUpSM developer program. Außerdem wird dir gezeigt, wie du dein MeeGo App leicht zu Geld machen kannst. Auch dieser MeeGo Freeday findet im Rahmen der MeeGo Coding [...]]]></description>
-			<content:encoded><![CDATA[<p><a href="http://meetmeego.org/wp-content/uploads/2011/04/Intel_AppUp_Logo_black.png"><img class="alignright size-medium wp-image-319" title="Intel_AppUp_Logo_black" src="http://meetmeego.org/wp-content/uploads/2011/04/Intel_AppUp_Logo_black-300x101.png" alt="" width="300" height="101" /></a><a href="http://meetmeego.org">meetmeego.org</a> holt euch das <strong>Intel<sup>®</sup> AppUp<sup>SM</sup> Application Lab</strong> nach Berlin!<br />
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1167</guid>
+        <description><![CDATA[meetmeego.org holt euch das Intel® AppUpSM Application Lab nach Berlin! Beim Intel AppLab erfährst Du jede Menge über die Programmierung mit und für MeeGo und über das Intel AppUpSM developer program. Außerdem wird dir gezeigt, wie du dein MeeGo App leicht zu Geld machen kannst. Auch dieser MeeGo Freeday findet im Rahmen der MeeGo Coding [...]]]></description>
+            <content:encoded><![CDATA[<p><a href="http://meetmeego.org/wp-content/uploads/2011/04/Intel_AppUp_Logo_black.png"><img class="alignright size-medium wp-image-319" title="Intel_AppUp_Logo_black" src="http://meetmeego.org/wp-content/uploads/2011/04/Intel_AppUp_Logo_black-300x101.png" alt="" width="300" height="101" /></a><a href="http://meetmeego.org">meetmeego.org</a> holt euch das <strong>Intel<sup>®</sup> AppUp<sup>SM</sup> Application Lab</strong> nach Berlin!<br />
 Beim Intel AppLab erfährst Du jede Menge über die Programmierung mit und für <a href="http://www.meego.com/" target="_new">MeeGo</a> und über das <a href="http://appdeveloper.intel.com/" target="_new">Intel AppUp<sup>SM</sup> developer program</a>. Außerdem wird dir gezeigt, wie du dein MeeGo App leicht zu Geld machen kannst.</p>
 <p>Auch dieser <a href="http://meegofreeday.org">MeeGo Freeday</a> findet im Rahmen der MeeGo Coding Competition 2011 (<a href="http://meetmeego.org/2011/03/28/meego-coding-competition-2011/">DE</a> | <a href="http://wiki.maemo.org/MeeGo_Coding_Competition_2011">ENG</a>) statt. Mit welchen Hilfsmitteln Du Deinen Weg deiner MeeGo x86 App bestreiten kannst erfährst du am Freitag. Doch wo <strong>veröffentlichen</strong>? Wie <strong>vermarkten</strong>? Und was gibt es für Schwierigkeiten?</p>
 <p>All das erfährst du auf dem <strong>MeeGo Freeday</strong> am <strong>29.04.2011</strong> in der <a href="http://www.c-base.org/">c-base</a> in Berlin!</p>
@@ -97,60 +97,60 @@ Beim Intel AppLab erfährst Du jede Menge über die Programmierung mit und für 
 <p><strong>Wir freuen uns auf Dich!<br />
 </strong></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1167/feed</wfw:commentRss>
-		<slash:comments>2</slash:comments>
-		</item>
-		<item>
-		<title>c-base bei Foursquare</title>
-		<link>http://logbuch.c-base.org/archives/1165</link>
-		<comments>http://logbuch.c-base.org/archives/1165#comments</comments>
-		<pubDate>Sat, 16 Apr 2011 09:19:50 +0000</pubDate>
-		<dc:creator>macro</dc:creator>
-				<category><![CDATA[bordleben]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1167/feed</wfw:commentRss>
+        <slash:comments>2</slash:comments>
+        </item>
+        <item>
+        <title>c-base bei Foursquare</title>
+        <link>http://logbuch.c-base.org/archives/1165</link>
+        <comments>http://logbuch.c-base.org/archives/1165#comments</comments>
+        <pubDate>Sat, 16 Apr 2011 09:19:50 +0000</pubDate>
+        <dc:creator>macro</dc:creator>
+                <category><![CDATA[bordleben]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1165</guid>
-		<description><![CDATA[Die c-base ist schon länger als Ort bei Foursquare. Wenn ihr das nutzt, könnt ihr gern auch Freunde werden. Das geht hier direkt:]]></description>
-			<content:encoded><![CDATA[<p>Die c-base ist schon länger als Ort bei Foursquare. Wenn ihr das nutzt, könnt ihr gern auch Freunde werden. Das geht hier direkt:</p>
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1165</guid>
+        <description><![CDATA[Die c-base ist schon länger als Ort bei Foursquare. Wenn ihr das nutzt, könnt ihr gern auch Freunde werden. Das geht hier direkt:]]></description>
+            <content:encoded><![CDATA[<p>Die c-base ist schon länger als Ort bei Foursquare. Wenn ihr das nutzt, könnt ihr gern auch Freunde werden. Das geht hier direkt:</p>
 <p><iframe src="http://de.foursquare.com/button.html?vid=126476&#038;color=blue" allowtransparency="true" frameborder="0" scrolling="no" style="width:165px; height:25px;"></iframe></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1165/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Video-Wegbeschreibung zur c-base</title>
-		<link>http://logbuch.c-base.org/archives/1161</link>
-		<comments>http://logbuch.c-base.org/archives/1161#comments</comments>
-		<pubDate>Tue, 12 Apr 2011 18:36:18 +0000</pubDate>
-		<dc:creator>ccm</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[creactive]]></category>
-		<category><![CDATA[redaction]]></category>
-		<category><![CDATA[Video]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1165/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>Video-Wegbeschreibung zur c-base</title>
+        <link>http://logbuch.c-base.org/archives/1161</link>
+        <comments>http://logbuch.c-base.org/archives/1161#comments</comments>
+        <pubDate>Tue, 12 Apr 2011 18:36:18 +0000</pubDate>
+        <dc:creator>ccm</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[creactive]]></category>
+        <category><![CDATA[redaction]]></category>
+        <category><![CDATA[Video]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1161</guid>
-		<description><![CDATA[Für den diesjährigen 2. Youtube User Congress haben die Youtuber Erstellt von EdwardBlack und DasBunteHirn eine Video-Wegbeschreibung zur c-base gedreht:]]></description>
-			<content:encoded><![CDATA[<p>Für den diesjährigen <a href="http://logbuch.c-base.org/archives/1153">2. Youtube User Congress</a> haben die Youtuber Erstellt von <a href="http://www.youtube.com/EdwardBlack">EdwardBlack</a> und <a href="http://www.youtube.com/DasBunteHirn">DasBunteHirn </a> eine Video-Wegbeschreibung zur c-base gedreht:</p>
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1161</guid>
+        <description><![CDATA[Für den diesjährigen 2. Youtube User Congress haben die Youtuber Erstellt von EdwardBlack und DasBunteHirn eine Video-Wegbeschreibung zur c-base gedreht:]]></description>
+            <content:encoded><![CDATA[<p>Für den diesjährigen <a href="http://logbuch.c-base.org/archives/1153">2. Youtube User Congress</a> haben die Youtuber Erstellt von <a href="http://www.youtube.com/EdwardBlack">EdwardBlack</a> und <a href="http://www.youtube.com/DasBunteHirn">DasBunteHirn </a> eine Video-Wegbeschreibung zur c-base gedreht:</p>
 <p><object width="560" height="349"><param name="movie" value="http://www.youtube-nocookie.com/v/NiTUMx4DBBA?fs=1&amp;hl=de_DE&amp;rel=0&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube-nocookie.com/v/NiTUMx4DBBA?fs=1&amp;hl=de_DE&amp;rel=0&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="349"></embed></object></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1161/feed</wfw:commentRss>
-		<slash:comments>2</slash:comments>
-		</item>
-		<item>
-		<title>Ovi Store Workshop &#8211; 15.04.2011</title>
-		<link>http://logbuch.c-base.org/archives/1157</link>
-		<comments>http://logbuch.c-base.org/archives/1157#comments</comments>
-		<pubDate>Tue, 12 Apr 2011 07:21:51 +0000</pubDate>
-		<dc:creator>zehjotkah</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
-		<category><![CDATA[MeeGo]]></category>
-		<category><![CDATA[MeeGo Freeday]]></category>
-		<category><![CDATA[meetmeego]]></category>
-		<category><![CDATA[Nokia]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1161/feed</wfw:commentRss>
+        <slash:comments>2</slash:comments>
+        </item>
+        <item>
+        <title>Ovi Store Workshop &#8211; 15.04.2011</title>
+        <link>http://logbuch.c-base.org/archives/1157</link>
+        <comments>http://logbuch.c-base.org/archives/1157#comments</comments>
+        <pubDate>Tue, 12 Apr 2011 07:21:51 +0000</pubDate>
+        <dc:creator>zehjotkah</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
+        <category><![CDATA[MeeGo]]></category>
+        <category><![CDATA[MeeGo Freeday]]></category>
+        <category><![CDATA[meetmeego]]></category>
+        <category><![CDATA[Nokia]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1157</guid>
-		<description><![CDATA[Wie schon auf dem &#8220;Code Qt!&#8221; Workshop angekündigt begleiten wir konsequent weiter den Weg der App-Entwicklung. Wenngleich es nun noch etwas dauern wird bis aus der ersten Idee eine fertige App geworden sein wird, stellt sich doch spätestens dann eine wichtige Frage: Wie kann die Anwendung so veröffentlicht werden, dass sie durch möglichst viele Leute [...]]]></description>
-			<content:encoded><![CDATA[<p>Wie schon auf dem <a title="Code Qt!" href="http://meetmeego.org/2011/04/02/video-vom-qt-workshop-beim-meego-freeday/" target="_blank">&#8220;Code Qt!&#8221; Workshop</a> angekündigt begleiten wir konsequent weiter den Weg der App-Entwicklung. Wenngleich es nun noch etwas dauern wird bis aus der ersten Idee eine fertige App geworden sein wird, stellt sich doch spätestens dann eine wichtige Frage: Wie kann die Anwendung so veröffentlicht werden, dass sie durch möglichst viele Leute gefunden und installiert wird?<span id="more-1157"></span><br />
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1157</guid>
+        <description><![CDATA[Wie schon auf dem &#8220;Code Qt!&#8221; Workshop angekündigt begleiten wir konsequent weiter den Weg der App-Entwicklung. Wenngleich es nun noch etwas dauern wird bis aus der ersten Idee eine fertige App geworden sein wird, stellt sich doch spätestens dann eine wichtige Frage: Wie kann die Anwendung so veröffentlicht werden, dass sie durch möglichst viele Leute [...]]]></description>
+            <content:encoded><![CDATA[<p>Wie schon auf dem <a title="Code Qt!" href="http://meetmeego.org/2011/04/02/video-vom-qt-workshop-beim-meego-freeday/" target="_blank">&#8220;Code Qt!&#8221; Workshop</a> angekündigt begleiten wir konsequent weiter den Weg der App-Entwicklung. Wenngleich es nun noch etwas dauern wird bis aus der ersten Idee eine fertige App geworden sein wird, stellt sich doch spätestens dann eine wichtige Frage: Wie kann die Anwendung so veröffentlicht werden, dass sie durch möglichst viele Leute gefunden und installiert wird?<span id="more-1157"></span><br />
 <strong>meetmeego.org präsentiert den Ovi Store Workshop</strong></p>
 <p>Der Workshop richtet sich an alle<br />
 * die sich für die Publikation ihrer App in den Ovi Store interessieren und<br />
@@ -163,39 +163,39 @@ Beim Intel AppLab erfährst Du jede Menge über die Programmierung mit und für 
 <p>Der Workshop ist kostenlos und für kühle Getränke ist gesorgt.</p>
 <p><strong>Wir freuen uns auf euch!</strong></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1157/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>2. YouTube User Congress &#8211; 22.-24.04.2011</title>
-		<link>http://logbuch.c-base.org/archives/1153</link>
-		<comments>http://logbuch.c-base.org/archives/1153#comments</comments>
-		<pubDate>Thu, 07 Apr 2011 07:40:04 +0000</pubDate>
-		<dc:creator>macro</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
-		<category><![CDATA[creactive]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1157/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>2. YouTube User Congress &#8211; 22.-24.04.2011</title>
+        <link>http://logbuch.c-base.org/archives/1153</link>
+        <comments>http://logbuch.c-base.org/archives/1153#comments</comments>
+        <pubDate>Thu, 07 Apr 2011 07:40:04 +0000</pubDate>
+        <dc:creator>macro</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
+        <category><![CDATA[creactive]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1153</guid>
-		<description><![CDATA[Offizielle Ankündigung zum 2. YouTube User Congress in der c-base Berlin. Der Congress beginnt am Freitag den 22. April 2011 und endet am 24. April 2011. Es sind 180 Plätze in der c-base vorhanden. Bei offenen Plätzen kann die Videoantwort bis zum 2. YouTube User Congress eingeschickt werden. Als Referenten aus dem letzten Jahr begrüsse [...]]]></description>
-			<content:encoded><![CDATA[<p><object style="height: 390px; width: 640px"><param name="movie" value="http://www.youtube.com/v/WtHjyKPHliA?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/WtHjyKPHliA?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="390"></object></p>
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1153</guid>
+        <description><![CDATA[Offizielle Ankündigung zum 2. YouTube User Congress in der c-base Berlin. Der Congress beginnt am Freitag den 22. April 2011 und endet am 24. April 2011. Es sind 180 Plätze in der c-base vorhanden. Bei offenen Plätzen kann die Videoantwort bis zum 2. YouTube User Congress eingeschickt werden. Als Referenten aus dem letzten Jahr begrüsse [...]]]></description>
+            <content:encoded><![CDATA[<p><object style="height: 390px; width: 640px"><param name="movie" value="http://www.youtube.com/v/WtHjyKPHliA?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/WtHjyKPHliA?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="390"></object></p>
 <p>Offizielle Ankündigung zum 2. YouTube User Congress in der c-base Berlin. Der Congress beginnt am Freitag den 22. April 2011 und endet am 24. April 2011. Es sind 180 Plätze in der c-base vorhanden. Bei offenen Plätzen kann die Videoantwort bis zum 2. YouTube User Congress eingeschickt werden. Als Referenten aus dem letzten Jahr begrüsse ich die Gameinsideshow, BPanther, Blaubeerina und Tromaggot. Die Firma Magix hat interesse bekundet möglicherweise einen Workshop zu geben. Schaunwama&#8230;<br />
 Schwerpunkt des 2. YouTube User Congresses ist die Bearbeitung von Audio und Video mittels Software.</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1153/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Android Stammtisch 30.03. mit Grill &amp; Microcopter</title>
-		<link>http://logbuch.c-base.org/archives/1147</link>
-		<comments>http://logbuch.c-base.org/archives/1147#comments</comments>
-		<pubDate>Tue, 29 Mar 2011 16:10:09 +0000</pubDate>
-		<dc:creator>keyboardsurfer</dc:creator>
-				<category><![CDATA[bordleben]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1153/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>Android Stammtisch 30.03. mit Grill &amp; Microcopter</title>
+        <link>http://logbuch.c-base.org/archives/1147</link>
+        <comments>http://logbuch.c-base.org/archives/1147#comments</comments>
+        <pubDate>Tue, 29 Mar 2011 16:10:09 +0000</pubDate>
+        <dc:creator>keyboardsurfer</dc:creator>
+                <category><![CDATA[bordleben]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1147</guid>
-		<description><![CDATA[Morgen (30.03.) ist es wieder soweit, wir eröffnen die Android Grillsaison in der cbase. Zu feiern gibt es 2 Jahre Android Stammtisch sowie 2 Jahre AndroidPit.de die uns auch den reichhaltigen Grill sponsorn. Neben dem Grillen, haben wir auch ein kleines Program: * L4Android[1] (verschoben) * Rückblick droidcamp &#38; droidcon * NFC * IS24 API [...]]]></description>
-			<content:encoded><![CDATA[<p>Morgen (30.03.) ist es wieder soweit, wir eröffnen die Android Grillsaison in der cbase.<br />
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1147</guid>
+        <description><![CDATA[Morgen (30.03.) ist es wieder soweit, wir eröffnen die Android Grillsaison in der cbase. Zu feiern gibt es 2 Jahre Android Stammtisch sowie 2 Jahre AndroidPit.de die uns auch den reichhaltigen Grill sponsorn. Neben dem Grillen, haben wir auch ein kleines Program: * L4Android[1] (verschoben) * Rückblick droidcamp &#38; droidcon * NFC * IS24 API [...]]]></description>
+            <content:encoded><![CDATA[<p>Morgen (30.03.) ist es wieder soweit, wir eröffnen die Android Grillsaison in der cbase.<br />
 Zu feiern gibt es 2 Jahre Android Stammtisch sowie 2 Jahre<br />
 AndroidPit.de die uns auch den reichhaltigen Grill sponsorn.</p>
 <p>Neben dem Grillen, haben wir auch ein kleines Program:<br />
@@ -209,26 +209,26 @@ AndroidPit.de die uns auch den reichhaltigen Grill sponsorn.</p>
 <p>[1] <a href="http://l4android.org/" target="_blank">http://l4android.org</a><br />
 [2] <a href="http://developer.immobilienscout24.de/" target="_blank">http://developer.immobilienscout24.de/</a></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1147/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Coding Qt – Workshop am 01.04.</title>
-		<link>http://logbuch.c-base.org/archives/1134</link>
-		<comments>http://logbuch.c-base.org/archives/1134#comments</comments>
-		<pubDate>Tue, 29 Mar 2011 07:47:44 +0000</pubDate>
-		<dc:creator>zehjotkah</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
-		<category><![CDATA[MeeGo]]></category>
-		<category><![CDATA[MeeGo Freeday]]></category>
-		<category><![CDATA[meetmeego]]></category>
-		<category><![CDATA[Qt]]></category>
-		<category><![CDATA[Workshop]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1147/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>Coding Qt – Workshop am 01.04.</title>
+        <link>http://logbuch.c-base.org/archives/1134</link>
+        <comments>http://logbuch.c-base.org/archives/1134#comments</comments>
+        <pubDate>Tue, 29 Mar 2011 07:47:44 +0000</pubDate>
+        <dc:creator>zehjotkah</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
+        <category><![CDATA[MeeGo]]></category>
+        <category><![CDATA[MeeGo Freeday]]></category>
+        <category><![CDATA[meetmeego]]></category>
+        <category><![CDATA[Qt]]></category>
+        <category><![CDATA[Workshop]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1134</guid>
-		<description><![CDATA[Berlin, 1. April 2011. Eine Gruppe entschlossen blickender Männer und Frauen versammelt sich an einem geheimen Ort, einer vor Jahrtausenden abgestürzten Raumstation. Man munkelt die Gruppe sei gekommen um sich längst vergessenes Wissen anzueignen. Wissen, das sie in die Lage versetzen würde, Technik der Bewohner des Planeten Terra zu manipulieren und zu kontrollieren&#8230; meetmeego.org lädt [...]]]></description>
-			<content:encoded><![CDATA[<p>Berlin, <strong>1. April 2011</strong>.  Eine Gruppe entschlossen blickender Männer und Frauen versammelt sich  an einem geheimen Ort, einer vor Jahrtausenden abgestürzten Raumstation.  Man munkelt die Gruppe sei gekommen um sich längst vergessenes Wissen  anzueignen. Wissen, das sie in die Lage versetzen würde, Technik der  Bewohner des Planeten Terra zu manipulieren und zu kontrollieren&#8230;</p>
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1134</guid>
+        <description><![CDATA[Berlin, 1. April 2011. Eine Gruppe entschlossen blickender Männer und Frauen versammelt sich an einem geheimen Ort, einer vor Jahrtausenden abgestürzten Raumstation. Man munkelt die Gruppe sei gekommen um sich längst vergessenes Wissen anzueignen. Wissen, das sie in die Lage versetzen würde, Technik der Bewohner des Planeten Terra zu manipulieren und zu kontrollieren&#8230; meetmeego.org lädt [...]]]></description>
+            <content:encoded><![CDATA[<p>Berlin, <strong>1. April 2011</strong>.  Eine Gruppe entschlossen blickender Männer und Frauen versammelt sich  an einem geheimen Ort, einer vor Jahrtausenden abgestürzten Raumstation.  Man munkelt die Gruppe sei gekommen um sich längst vergessenes Wissen  anzueignen. Wissen, das sie in die Lage versetzen würde, Technik der  Bewohner des Planeten Terra zu manipulieren und zu kontrollieren&#8230;</p>
 <p><strong>meetmeego.org lädt ein zum erste</strong><strong>n Qt-Workshop &#8220;Coding Qt&#8221; 2011 in Berlin!</strong></p>
 <p><img title="Weiterlesen..." src="http://meetmeego.org/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif" alt="" /></p>
 <p>Bei <a href="http://qt.nokia.com/">Qt</a> handelt sich ein Framework zur Plattformübergreifenden   Anwendungsentwicklung. So ist Qt auf unserem geliebten Nokia N900   vorinstalliert. Softwareentwicklung mit Hilfe von Qt ist außerdem für <a href="http://developer.qt.nokia.com/wiki/Support_for_Maemo">MeeGo</a>, <a href="http://developer.qt.nokia.com/wiki/Support_for_Symbian">Symbian</a> und <a href="http://www.griffin.net/2010/02/qt-on-the-palm-pre.html">WebOS</a> möglich. All diese Plattformen unterstützen Qt offiziell. Es sind auch Bibliotheken für Desktop-Systeme, wie <a href="http://developer.qt.nokia.com/wiki/Support_for_Windows">Windows</a>, <a href="http://developer.qt.nokia.com/wiki/Support_for_Mac_OS_X">Mac OS</a> und <a href="http://developer.qt.nokia.com/wiki/Support_for_Linux_X11">Linux</a> vorhanden. Inoffiziell ebenfalls lauffähig ist es auf <a href="http://sourceforge.net/p/necessitas/home/">Android</a> und <a href="http://www.qt-iphone.com/Introduction.html">iOS</a>.</p>
@@ -238,23 +238,23 @@ AndroidPit.de die uns auch den reichhaltigen Grill sponsorn.</p>
 <p>Die  Qt-Gurus von Qt-Berlin sind anwesend und stehen dir mit Rat und  Tat zur  Seite! Der Workshop integriert sich in die Reihe der Events  unter dem Schirm des <a href="http://meegofreeday.org/" target="_blank">MeeGo Freedays</a>. Bei allen MeeGo Freeday Events im April wird die MeeGo-Bar um 18:30 Uhr eröffnet, das Programm startet um 19:00 Uhr.</p>
 <p><strong>Wir freuen uns auf euch!</strong></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1134/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>10 Jahre fsfe, #Tassebier &amp; @tkohackerspace</title>
-		<link>http://logbuch.c-base.org/archives/1127</link>
-		<comments>http://logbuch.c-base.org/archives/1127#comments</comments>
-		<pubDate>Tue, 29 Mar 2011 07:23:44 +0000</pubDate>
-		<dc:creator>macro</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[com]]></category>
-		<category><![CDATA[cult]]></category>
-		<category><![CDATA[space station rescue team]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1134/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>10 Jahre fsfe, #Tassebier &amp; @tkohackerspace</title>
+        <link>http://logbuch.c-base.org/archives/1127</link>
+        <comments>http://logbuch.c-base.org/archives/1127#comments</comments>
+        <pubDate>Tue, 29 Mar 2011 07:23:44 +0000</pubDate>
+        <dc:creator>macro</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[com]]></category>
+        <category><![CDATA[cult]]></category>
+        <category><![CDATA[space station rescue team]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1127</guid>
-		<description><![CDATA[Am Donnerstag, den 31.03. feiert die Free Software Foundation Europe ihren 10. Geburtstag. Kombiniert wird die Feierlichkeit mit dem DJ-Twitter-Collective #TasseBier um die @Blogrebellen. Es legen auf: DJ _Tasmo, Walter Marinelli und Saetchmo, dessen Radioshow Echo Chamber gestreamt wird. Alle Erlöse des Abends gehen an den @tkohackerspace (Tokyo Hackerspace). Mehr Infos dazu: http://www.tokyohackerspace.org/en http://quake.tokyohackerspace.org/index.php/Main_Page]]></description>
-			<content:encoded><![CDATA[<p><img src="http://logbuch.c-base.org/wp-content/uploads/2011/03/tokyohackerspace1.jpg" alt="" title="tokyohackerspace" width="684" height="430" class="alignnone size-full wp-image-1144" /><br />
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1127</guid>
+        <description><![CDATA[Am Donnerstag, den 31.03. feiert die Free Software Foundation Europe ihren 10. Geburtstag. Kombiniert wird die Feierlichkeit mit dem DJ-Twitter-Collective #TasseBier um die @Blogrebellen. Es legen auf: DJ _Tasmo, Walter Marinelli und Saetchmo, dessen Radioshow Echo Chamber gestreamt wird. Alle Erlöse des Abends gehen an den @tkohackerspace (Tokyo Hackerspace). Mehr Infos dazu: http://www.tokyohackerspace.org/en http://quake.tokyohackerspace.org/index.php/Main_Page]]></description>
+            <content:encoded><![CDATA[<p><img src="http://logbuch.c-base.org/wp-content/uploads/2011/03/tokyohackerspace1.jpg" alt="" title="tokyohackerspace" width="684" height="430" class="alignnone size-full wp-image-1144" /><br />
 Am Donnerstag, den 31.03. feiert die <a href="http://fsfe.org/index.de.html">Free Software Foundation Europe</a> ihren 10. Geburtstag.<br />
 Kombiniert wird die Feierlichkeit mit dem DJ-Twitter-Collective #TasseBier um die <a href="http://blog.rebellen.info/">@Blogrebellen</a>. Es legen auf: DJ _Tasmo, Walter Marinelli und Saetchmo, dessen Radioshow Echo Chamber gestreamt wird.</p>
 <p>Alle Erlöse des Abends gehen an den @tkohackerspace (Tokyo Hackerspace).<br />
@@ -262,21 +262,21 @@ Mehr Infos dazu:<br />
 <a href="http://www.tokyohackerspace.org/en">http://www.tokyohackerspace.org/en</a><br />
 <a href="http://quake.tokyohackerspace.org/index.php/Main_Page">http://quake.tokyohackerspace.org/index.php/Main_Page</a></p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1127/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>GNOME 3 Launch Lounge &#8211; 08.04.2011</title>
-		<link>http://logbuch.c-base.org/archives/1123</link>
-		<comments>http://logbuch.c-base.org/archives/1123#comments</comments>
-		<pubDate>Sat, 26 Mar 2011 09:50:43 +0000</pubDate>
-		<dc:creator>macro</dc:creator>
-				<category><![CDATA[bordleben]]></category>
-		<category><![CDATA[cience]]></category>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1127/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+        <item>
+        <title>GNOME 3 Launch Lounge &#8211; 08.04.2011</title>
+        <link>http://logbuch.c-base.org/archives/1123</link>
+        <comments>http://logbuch.c-base.org/archives/1123#comments</comments>
+        <pubDate>Sat, 26 Mar 2011 09:50:43 +0000</pubDate>
+        <dc:creator>macro</dc:creator>
+                <category><![CDATA[bordleben]]></category>
+        <category><![CDATA[cience]]></category>
 
-		<guid isPermaLink="false">http://logbuch.c-base.org/?p=1123</guid>
-		<description><![CDATA[Fr 08.04.2011 19:00 &#124; Mainhall The GNOME Berlin community is inviting you to come celebrate GNOME 3, the first major release of GNOME in almost a decade. The event will take place on Friday April 8th @ 7pm at c-base. You can find current info on the event’s GNOME Live page or on Facebook. We’ve [...]]]></description>
-			<content:encoded><![CDATA[<p>Fr 08.04.2011 19:00 | Mainhall</p>
+        <guid isPermaLink="false">http://logbuch.c-base.org/?p=1123</guid>
+        <description><![CDATA[Fr 08.04.2011 19:00 &#124; Mainhall The GNOME Berlin community is inviting you to come celebrate GNOME 3, the first major release of GNOME in almost a decade. The event will take place on Friday April 8th @ 7pm at c-base. You can find current info on the event’s GNOME Live page or on Facebook. We’ve [...]]]></description>
+            <content:encoded><![CDATA[<p>Fr 08.04.2011 19:00 | Mainhall</p>
 <p>The GNOME Berlin community is inviting you to come celebrate GNOME 3, the first major release of GNOME in almost a decade. The event will take place on Friday April 8th @ 7pm at c-base.<br />
 You can find current info on the event’s <a href="http://live.gnome.org/ThreePointZero/LaunchParty/Germany/Berlin">GNOME Live page</a> or on <a href="https://www.facebook.com/event.php?eid=168385673213124">Facebook</a>.<br />
 We’ve scheduled a couple talks and some entertainment for the evening. (Expect updates!)</p>
@@ -289,8 +289,8 @@ We’ve scheduled a couple talks and some entertainment for the evening. (Expect
 The GNOME Foundation has supplied us with a limited number event goodies to distribute, so get there early to claim yours.</p>
 <p>We hope to see you there!</p>
 ]]></content:encoded>
-			<wfw:commentRss>http://logbuch.c-base.org/archives/1123/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-	</channel>
+            <wfw:commentRss>http://logbuch.c-base.org/archives/1123/feed</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+        </item>
+    </channel>
 </rss>

@@ -10,10 +10,10 @@ admin.autodiscover()
 from landing_page.views import IndexView
 
 urlpatterns = patterns('',
-	url(r'^admin/', include(admin.site.urls)),
-	url(r'aggregator/', include('dasdocc.aggregator.urls')),
-	url(r'^accounts/login/$', 'django.contrib.auth.views.login', name = 'login_view'),
-	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name = 'logout_view'),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'aggregator/', include('dasdocc.aggregator.urls')),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name = 'login_view'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name = 'logout_view'),
 )
 
 if settings.DEBUG:
@@ -26,5 +26,5 @@ if settings.DEBUG:
 
 
 urlpatterns += patterns('',
-	url(r'', include('landing_page.urls')),
+    url(r'', include('landing_page.urls')),
 )

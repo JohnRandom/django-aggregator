@@ -1,26 +1,26 @@
 <html>
   <head>
-	{% load import %}
+    {% load import %}
     {% all_stylesheets %}
   </head>
   <body>
-	{% include "_user_navigation.html" %}
+    {% include "_user_navigation.html" %}
 
     <h1>Newest entries</h1>
     {% load aggregates %}
     {% aggregate_feeds limit=5 template="templatetags/onlytopics.html"%}
-	<h1>Static Content</h1>
-	<h2>Recent Changes</h2>
-	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "Recent Changes" %}
-	</div>
-	<h2>SemiNare</h2>
-	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "SemiNare" %}
-	</div>
-	<h2>Sponsors</h2>
-	<div style="border: solid 1px; padding: 10px; margin: 5px;">
-	{% static_content "current c-base landing page" %}
-	</div>
+    <h1>Static Content</h1>
+    <h2>Recent Changes</h2>
+    <div style="border: solid 1px; padding: 10px; margin: 5px;">
+    {% static_content "Recent Changes" %}
+    </div>
+    <h2>SemiNare</h2>
+    <div style="border: solid 1px; padding: 10px; margin: 5px;">
+    {% static_content "SemiNare" %}
+    </div>
+    <h2>Sponsors</h2>
+    <div style="border: solid 1px; padding: 10px; margin: 5px;">
+    {% static_content "current c-base landing page" %}
+    </div>
   </body>
 </html>
