@@ -64,4 +64,5 @@ class SelectorMock(MagicMock):
     css_selector = PropertyMock(return_value='div#content')
 
 static_content_html = '<html><head></head><body><div id="content"><a href="/test">a link</a></div></body></html>'
-static_content_parsed = html.fromstring(static_content_html)
+def static_content_parsed():
+     return html.fromstring(static_content_html)

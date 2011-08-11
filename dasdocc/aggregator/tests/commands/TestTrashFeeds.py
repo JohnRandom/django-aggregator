@@ -11,9 +11,9 @@ from dasdocc.aggregator.models import Feed
 class TrashFeedsTests(TestCase):
 
     def setUp(self):
-        two_hours = timedelta(hours = 2)
+        two_hours = timedelta(hours=2)
         time_invalidated = datetime.now() - two_hours
-        self.feed = InvalidFeedFactory(trashed_at = time_invalidated)
+        self.feed = InvalidFeedFactory(trashed_at=time_invalidated)
 
     def teardown(self):
         pass
@@ -24,7 +24,7 @@ class TrashFeedsTests(TestCase):
         assert_equals(Feed.trashed.count(), 0)
 
     def test_valid_feeds_never_gets_trashed(self):
-        feed = FeedFactory(trashed_at = None)
+        feed = FeedFactory(trashed_at=None)
         assert_equals(Feed.objects.count(), 1)
         call('trashfeeds')
         assert_equals(Feed.objects.count(), 1)

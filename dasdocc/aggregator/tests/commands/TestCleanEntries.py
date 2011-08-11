@@ -13,9 +13,9 @@ from dasdocc.aggregator.models import Entry
 class CleanEntryTests(TestCase):
 
     def setUp(self):
-        delta = timedelta(days = 8)
+        delta = timedelta(days=8)
         publish_date = datetime.now() - delta
-        self.entry = EntryFactory(date_published = publish_date)
+        self.entry = EntryFactory(date_published=publish_date)
 
     def teardown(self):
         pass

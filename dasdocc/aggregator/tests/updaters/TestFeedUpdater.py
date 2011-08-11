@@ -20,7 +20,7 @@ class FeedUpdaterTests(TestCase):
         pass
 
     def test_expired_entries_should_not_get_saved(self):
-        parser = self.updater(FeedFactory(content_expiration = 0))
+        parser = self.updater(FeedFactory(content_expiration=0))
         parser.run()
         assert_equals(Entry.objects.count(), 0)
 

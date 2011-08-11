@@ -12,10 +12,10 @@ class ExpiredEntriesManagerTests(TestCase):
 
     def setUp(self):
         settings.ENTRY_EXPIRATION_DAYS = 7
-        delta = timedelta(days = 8)
+        delta = timedelta(days=8)
         publish_date = datetime.now() - delta
         self.entry = EntryFactory()
-        self.expired_entry = EntryFactory(date_published = publish_date)
+        self.expired_entry = EntryFactory(date_published=publish_date)
 
     def tearfown(self):
         pass

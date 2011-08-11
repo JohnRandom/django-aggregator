@@ -20,7 +20,7 @@ def parse_feed(method):
         inst = args[0]
         if not isinstance(inst, FeedParser): raise DecoratorError("parse_feed can only be used with FeedParser.")
         if inst.feed is None:
-            inst.feed = feed = feedparser.parse(inst.source, etag = inst.model.etag)
+            inst.feed = feed = feedparser.parse(inst.source, etag=inst.model.etag)
         return method(*args, **kwargs)
 
     return wrapper

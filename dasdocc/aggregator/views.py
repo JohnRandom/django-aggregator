@@ -10,7 +10,7 @@ class PlaygroundView(TemplateView):
     template_name = "playground.html"
 
 @login_required
-def update_content(request, model = None, next = "/", allow_overwrite = True):
+def update_content(request, model=None, next="/", allow_overwrite=True):
 
     if hasattr(request.GET, 'next') and allow_overwrite:
         next = request.GET['next']

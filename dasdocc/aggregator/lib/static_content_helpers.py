@@ -44,10 +44,11 @@ class StaticContentParser(object):
         return root
 
     def _rewrite_ids_on_node(self, node):
-        if 'id' in node.attrib:
+        if 'id' in node.attrib.keys():
             if not node.attrib.has_key('class'):
-                node.attrib['class'] = ''
-            node.attrib['class'] += ' id-%s' % node.attrib['id']
+                node.attrib['class'] = 'id-%s' % node.attrib['id']
+            else:
+                node.attrib['class'] += ' id-%s' % node.attrib['id']
             del node.attrib['id']
 
     def _proccess_string_nodes(self, content):

@@ -7,5 +7,5 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for url in args:
-            feed = Feed.objects.get_or_create(source = url)
+            feed = Feed.objects.get_or_create(source=url)
 

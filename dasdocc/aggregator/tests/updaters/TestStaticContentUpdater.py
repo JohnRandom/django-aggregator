@@ -6,7 +6,7 @@ from mock import patch, Mock
 
 from dasdocc.aggregator.lib.updaters.static_content_updater import _StaticContentUpdater
 
-FailingStaticContentParser = Mock(side_effect = IOError)
+FailingStaticContentParser = Mock(side_effect=IOError)
 
 class PublicInterfaceTests(TestCase):
 

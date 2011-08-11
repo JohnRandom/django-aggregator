@@ -6,5 +6,5 @@ admin.autodiscover()
 from landing_page.views import IndexView
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name = 'index_view'),
+    url(r'^$', IndexView.as_view(), name='index_view'),
 )

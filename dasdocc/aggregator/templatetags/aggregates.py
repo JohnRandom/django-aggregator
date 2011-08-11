@@ -22,8 +22,8 @@ class TemplateRenderingTag(ttag.Tag):
 
 class AggregateFeeds(TemplateRenderingTag):
 
-    limit = ttag.Arg(keyword = True, default = 0)
-    template = ttag.Arg(keyword = True, default = aggregate_feeds_template)
+    limit = ttag.Arg(keyword=True, default=0)
+    template = ttag.Arg(keyword=True, default=aggregate_feeds_template)
 
     def output(self, data):
         limit = data.get('limit', 0)
@@ -42,7 +42,7 @@ class StaticContent(ttag.Tag):
 
     def output(self, data):
         identifier = data.get('identifier')
-        try: content = StaticContentModel.objects.get(name = identifier)
+        try: content = StaticContentModel.objects.get(name=identifier)
         except StaticContentModel.DoesNotExist: return u''
 
         content = [sel.bound_content for sel in content.selector_set.all() if sel.bound_content is not None]

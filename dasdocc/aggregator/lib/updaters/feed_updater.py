@@ -11,7 +11,7 @@ FEED_FIELDS = {
     'language_code': 50,
 }
 
-def truncate(fields, truncator = '...'):
+def truncate(fields, truncator='...'):
     for name, value in fields.iteritems():
         if not FEED_FIELDS.has_key(name) or value is None: continue
         max_length = FEED_FIELDS[name]
@@ -54,7 +54,7 @@ class _FeedUpdater(object):
 
     def _is_entry_expired(self, wrapped_entry):
         return wrapped_entry.get_defaults()['date_published']\
-                < datetime.now() - timedelta(days = self.instance.content_expiration)
+                < datetime.now() - timedelta(days=self.instance.content_expiration)
 
     @requires_instance
     @untrashed_only
@@ -76,7 +76,7 @@ class _FeedUpdater(object):
 
         # create parsing errors if necessary
         if parser.error['raised']:
-            self.instance.parsingerror_set.create(error_message = parser.error['message'][:255])
+            self.instance.parsingerror_set.create(error_message=parser.error['message'][:255])
 
         # validate and trash if necessary
         self.instance.valid = parser.is_valid()

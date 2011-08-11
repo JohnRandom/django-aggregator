@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'trashes all invalid feeds'
 
     def handle(self, *args, **options):
-        delta = timedelta(seconds = TRASH_EXPIRATION)
+        delta = timedelta(seconds=TRASH_EXPIRATION)
         treshold = datetime.now() - delta
 
-        Feed.trashed.filter(trashed_at__lte = treshold).delete()
+        Feed.trashed.filter(trashed_at__lte=treshold).delete()

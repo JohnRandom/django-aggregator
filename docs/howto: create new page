@@ -13,19 +13,19 @@ This document describes how to add a new page the the c-base landing page
   from landing_page.views import IndexView, <NewViewClass goes here>
 
   urlpatterns = patterns('',
-      url(r'^$', IndexView.as_view(), name = 'index_view'),
-  --> url(r'^<url-to-new-page>$', <NewViewClass>.as_view(), name = '<new_view_class_name>'),
+      url(r'^$', IndexView.as_view(), name='index_view'),
+  --> url(r'^<url-to-new-page>$', <NewViewClass>.as_view(), name='<new_view_class_name>'),
   )
 
 5. create the new template for the view at landing_page/templates/<new_template_name>.html
 
 Pitfalls:
   Pay close attention to the url name:
-    url(r'^contact$', ContactView.as_view(), name = 'contact_view'),
+    url(r'^contact$', ContactView.as_view(), name='contact_view'),
                  ^
     and
 
-    url(r'^contact/$', ContactView.as_view(), name = 'contact_view'),
+    url(r'^contact/$', ContactView.as_view(), name='contact_view'),
                   ^
 
     are different urls!
