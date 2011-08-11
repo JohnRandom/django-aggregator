@@ -3,4 +3,7 @@
 *.swp
 .noseids
 settings.py
-static/*
+dasdocc.egg*
+*DS_Store*
+dasdocc/static/admin/*
+

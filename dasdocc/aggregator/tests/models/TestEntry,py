@@ -1,0 +1,27 @@
+#-*- coding: utf-8 -*-
+from datetime import datetime, timedelta
+
+from nose.tools import *
+from django.test import TestCase
+from nose.plugins.attrib import attr
+
+from dasdocc.aggregator.tests.factories import EntryFactory
+from dasdocc.aggregator.models import Entry
+
+class ExpiredEntriesManagerTests(TestCase):
+
+	def setUp(self):
+		settings.ENTRY_EXPIRATION_DAYS = 7
+		delta = timedelta(days = 8)
+		publish_date = datetime.now() - delta
+		self.entry = EntryFactory()
+		self.expired_entry = EntryFactory(date_published = publish_date)
+
+	def tearfown(self):
+		pass
+
+	def test_objects_just_returns_not_trashed_feeds(self):
+		assert_equals(Entry.objects.get(), self.entry)
+
+	def test_trashed_just_returns_not_trashed_feeds(self):
+		assert_equals(Entry.expired.get(), self.expired_entry)
