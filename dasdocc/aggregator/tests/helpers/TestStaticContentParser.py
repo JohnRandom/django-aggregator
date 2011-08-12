@@ -62,7 +62,6 @@ class ContentProcessingTests(TestCase):
         self.parser = StaticContentParser(self.static_content_mock)
         self.parser.data = static_content_parsed()
 
-    @attr('wip')
     def test_selector_data_is_processed_correctly(self):
         processed_nodes = self.parser.get_nodes()
         assert_in( '<div class="id-content">', processed_nodes[0])

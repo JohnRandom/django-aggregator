@@ -37,6 +37,7 @@ class _StaticContentUpdater(object):
     @requires_instance
     @rescue_lxml_error
     def run(self):
+        self.instance.staticcontenterror_set.all().delete()
         parser = StaticContentParser(self.instance)
         parser.process_nodes()
         return True
