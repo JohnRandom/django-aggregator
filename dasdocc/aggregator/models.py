@@ -130,6 +130,7 @@ class Selector(models.Model):
     css_selector = models.CharField(max_length=255)
     name = models.CharField(max_length=255, blank=True, null=True)
     bound_content = models.TextField(blank=True, null=True)
+    max_amount_of_childs = models.SmallIntegerField(blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.css_selector)

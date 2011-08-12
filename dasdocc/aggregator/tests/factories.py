@@ -60,9 +60,30 @@ FeedParserMock.get_defaults = Mock(return_value=feed_defaults)
 class StaticContentMock(MagicMock):
     source = PropertyMock(return_value='http://mocked.source/')
 
+    def __init__(self, selectors=None, *args, **kwargs):
+        super(MagicMock, self).__init__(*args, **kwargs)
+
+        if selectors:
+            self.selector_set.all = Mock(return_value=selectors)
+
 class SelectorMock(MagicMock):
     css_selector = PropertyMock(return_value='div#content')
 
 static_content_html = '<html><head></head><body><div id="content"><a href="/test">a link</a></div></body></html>'
 def static_content_parsed():
      return html.fromstring(static_content_html)
+
+def static_content_with_childs(amount=10, tag='div', class_='test',
+    value='test'):
+
+    start = '<html><head></head><body>'
+    end = '</body></html>'
+
+    content = []
+    content_template = '<%s class="%s">%s</%s>'
+
+    for i in range(amount):
+        content.append(content_template % (tag, class_, value, tag))
+
+    static_content_html = start + ''.join(content) + end
+    return html.fromstring(static_content_html)

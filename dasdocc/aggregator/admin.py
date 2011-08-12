@@ -97,7 +97,7 @@ class EntryAdmin(admin.ModelAdmin):
 
 class SelectorInline(admin.StackedInline):
     model = Selector
-    fields = ('name', 'css_selector', 'bound_content')
+    fields = ('name', 'css_selector', 'max_amount_of_childs', 'bound_content')
     readonly_fields = ('bound_content',)
     extra = 0
 

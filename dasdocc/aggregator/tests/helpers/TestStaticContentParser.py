@@ -9,7 +9,7 @@ from mock import Mock, patch, MagicMock
 
 from dasdocc.aggregator.lib.static_content_helpers import StaticContentParser
 from dasdocc.aggregator.tests.factories import (StaticContentMock,
-    static_content_parsed, SelectorMock)
+    static_content_parsed, SelectorMock, static_content_with_childs)
 
 class InterfaceTests(TestCase):
     '''
@@ -55,10 +55,10 @@ class ContentProcessingTests(TestCase):
     '''
 
     def setUp(self):
-        selector = SelectorMock()
+        self.selector = SelectorMock()
         self.static_content_mock = StaticContentMock()
         self.static_content_mock.selector_set.all = Mock(
-            return_value=[selector])
+            return_value=[self.selector])
         self.parser = StaticContentParser(self.static_content_mock)
         self.parser.data = static_content_parsed()
 
@@ -76,3 +76,14 @@ class ContentProcessingTests(TestCase):
     def test_processing_time_is_assigned_to_staticcontent_object(self):
         parser = StaticContentParser(self.static_content_mock)
         assert_equals(parser.static_content.date_parsed, 'time')
+
+    @attr('wip')
+    def test_should_respect_max_amount_of_childs(self):
+        selector = Mock()
+        selector.css_selector = '.ping'
+        selector.max_amount_of_childs = 4
+        parser = StaticContentParser(StaticContentMock(selectors=[selector]))
+        parser.data = static_content_with_childs(amount=5, class_='ping')
+
+        processed_nodes = parser.get_nodes()
+        assert_equal(processed_nodes[0].count('ping'), 4)

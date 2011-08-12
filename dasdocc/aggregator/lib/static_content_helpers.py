@@ -27,8 +27,10 @@ class StaticContentParser(object):
 
     def _parse_nodes(self, selector):
         sel = CSSSelector(selector.css_selector)
+        max_childs = selector.max_amount_of_childs
 
         nodes = sel(self.data)
+        nodes = nodes[:max_childs] if max_childs else nodes
         nodes = map(self._rewrite_ids_to_class, nodes)
         nodes = self._nodes_to_string(nodes)
         nodes = self._proccess_string_nodes(nodes)
