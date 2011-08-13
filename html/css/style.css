@@ -295,18 +295,64 @@ table { border-collapse: collapse; border-spacing: 0; }
 
    body {
    	width: 896px;
-   	padding: 72px 48px 84px;
+   	padding: 30px 48px 84px;
    	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
    	background: rgb(15,16,21) url(../img/header_xl.jpg) no-repeat top center;
-   	color: rgb(142,146,155);	
+   	color: rgb(142,146,155);
+   	margin: 0 auto;
    }
-
-
-
+   nav ul li {
+     display: inline-block;
+   }
+   nav ul li a {
+     text-decoration: none;
+     color: rgb(142,146,155);
+     font-size: 9pt;
+     font-weight: normal;
+     display: inline-block;
+     padding: 0 5px;
+   }
+   nav ul li a:hover, nav ul li a:active {
+     text-decoration: none;
+     color: rgb(255,255,255);
+   }
+   .clamp {
+     margin: 0 0 0 2px;
+   }
+   .clamp a {
+     width: 50px;
+   }
+   .carbon a {
+     width: 55px;
+   }
+   .cience a {
+     width: 166px;
+   }
+   .creactive a {
+     width: 130px;
+   }
+   .culture a {
+     width: 65px;
+   }
+   .communication a {
+     width: 45px;
+   }
+   .core a {
+     width: 105px;
+   }
+   .c-base a {
+     background: url(../img/logo_xl.png) no-repeat top right;
+     width: 160px;
+     height: 50px;
+     position: relative;
+     top: 20px;
+   }
+   
+      
    /*		Tablet Layout: 768px.
-   		Gutters: 24px.
-   		Outer margins: 28px.
-   		Inherits styles from: Default Layout.
+   communication		Gutters: 24px.
+   core"><a href		Outer margins: 28px.
+   c-base"><a hr		Inherits styles from: Default Layout.
    -----------------------------------------------------------------
    cols    1     2      3      4      5      6      7      8
    px      68    160    252    344    436    528    620    712    */
