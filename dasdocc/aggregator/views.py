@@ -23,11 +23,14 @@ def update_content(request, model=None, next="/", allow_overwrite=True):
     if isinstance(model, models.Model):
         for source in model.objects.all():
             source.updater.run()
-    elif isiterable(model) and all([issubclass(_model, models.Model) for _model in model]):
+    elif isiterable(model) and all([issubclass(_model, models.Model)
+        for _model in model]):
         for _model in model:
             for source in _model.objects.all():
                 source.updater.run()
     else:
-        raise TypeError('Content can only be updated on models, found %s instead.' % type(model))
+        raise TypeError(
+            'Content can only be updated on models, found %s instead.' %
+            type(model))
 
     return HttpResponseRedirect(next)

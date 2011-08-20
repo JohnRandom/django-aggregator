@@ -2,7 +2,6 @@
 *.json
 *.swp
 .noseids
-settings.py
 dasdocc.egg*
 *DS_Store*
 dasdocc/static/admin/*

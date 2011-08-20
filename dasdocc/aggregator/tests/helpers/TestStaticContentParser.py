@@ -82,8 +82,10 @@ class ContentProcessingTests(TestCase):
         selector = Mock()
         selector.css_selector = '.ping'
         selector.max_amount_of_childs = 4
+
         parser = StaticContentParser(StaticContentMock(selectors=[selector]))
         parser.data = static_content_with_childs(amount=5, class_='ping')
 
         processed_nodes = parser.get_nodes()
+
         assert_equal(processed_nodes[0].count('ping'), 4)
